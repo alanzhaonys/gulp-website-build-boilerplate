@@ -131,10 +131,10 @@ function reloadBrowser(done) {
 // Tasks to run as source files are changed
 //
 function watchChanges() {
-  gulp.watch(scssSource + '/**/*.scss', gulp.series(styles));
-  gulp.watch(scriptSource + '/**/*.js', gulp.series(jslint, scripts));
-  gulp.watch(imageSource + '/**/*', gulp.series(images));
-  gulp.watch(fontSource + '/**/*', gulp.series(fonts));
+  gulp.watch(scssSource + '/**/*.scss', gulp.series(styles, reloadBrowser));
+  gulp.watch(scriptSource + '/**/*.js', gulp.series(jslint, scripts, reloadBrowser));
+  gulp.watch(imageSource + '/**/*', gulp.series(images, reloadBrowser));
+  gulp.watch(fontSource + '/**/*', gulp.series(fonts, reloadBrowser));
   gulp.watch('**/*.html', gulp.series(reloadBrowser));
 }
 
