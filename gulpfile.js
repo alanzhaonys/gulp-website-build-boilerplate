@@ -1,40 +1,62 @@
-var gulp = require('gulp'),
-  scss = require('gulp-sass'),
-  browserSync = require('browser-sync'),
-  concat = require('gulp-concat'),
-  uglify = require('gulp-uglify'),
-  cssnano = require('gulp-cssnano'),
-  rename = require('gulp-rename'),
-  sourcemaps = require('gulp-sourcemaps'),
-  del = require('del'),
-  imagemin = require('gulp-imagemin'),
-  jshint = require('gulp-jshint'),
-  pngquant = require('imagemin-pngquant'),
-  cache = require('gulp-cache'),
-  autoprefixer = require('gulp-autoprefixer');
+var gulp = require("gulp"),
+  scss = require("gulp-sass"),
+  browserSync = require("browser-sync"),
+  concat = require("gulp-concat"),
+  uglify = require("gulp-uglify"),
+  cssnano = require("gulp-cssnano"),
+  rename = require("gulp-rename"),
+  sourcemaps = require("gulp-sourcemaps"),
+  del = require("del"),
+  imagemin = require("gulp-imagemin"),
+  jshint = require("gulp-jshint"),
+  pngquant = require("imagemin-pngquant"),
+  cache = require("gulp-cache"),
+  jade = require("gulp-jade"),
+  autoprefixer = require("gulp-autoprefixer");
 
-var domain = '';
-var scssSource = 'assets/styles';
-var scriptSource = 'assets/js';
-var imageSource = 'assets/images';
-var fontSource = 'assets/fonts';
+var domain = "";
+var pageSource = "src";
+var scssSource = "assets/styles";
+var scriptSource = "assets/js";
+var imageSource = "assets/images";
+var fontSource = "assets/fonts";
 
-var scssDist = 'dist/styles';
-var scriptDist = 'dist/js';
-var imageDist = 'dist/images';
-var fontDist = 'dist/fonts';
+var pageDist = "dist";
+var scssDist = "dist/styles";
+var scriptDist = "dist/js";
+var imageDist = "dist/images";
+var fontDist = "dist/fonts";
+
+//
+// Compile JADE to HTML
+//
+function jadeToHtml(done) {
+  var YOUR_LOCALS = {};
+  gulp
+    .src(pageSource + "/**/*.jade")
+    .pipe(
+      jade({
+        locals: YOUR_LOCALS
+      })
+    )
+    .pipe(gulp.dest(pageDist));
+  done();
+}
 
 //
 // Compile SCSS task
 //
 function styles() {
-  return gulp.src(scssSource + '/**/*.scss')
+  return gulp
+    .src(scssSource + "/**/*.scss")
     .pipe(sourcemaps.init())
-    .pipe(scss().on('error', scss.logError))
-    .pipe(autoprefixer({
-      cascade: false
-    }))
-    .pipe(concat('styles.min.css'))
+    .pipe(scss().on("error", scss.logError))
+    .pipe(
+      autoprefixer({
+        cascade: false
+      })
+    )
+    .pipe(concat("styles.min.css"))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(scssDist));
 }
@@ -43,26 +65,35 @@ function styles() {
 // Script lint task
 //
 function jslint() {
-  return gulp.src([
-      'gulpfile.js',
-      scriptSource + '/**/*.js'
-    ])
+  return gulp
+    .src(["gulpfile.js", scriptSource + "/**/*.js"])
     .pipe(jshint())
-    .pipe(jshint.reporter('default'))
-    .pipe(jshint.reporter('fail'));
+    .pipe(jshint.reporter("default"))
+    .pipe(jshint.reporter("fail"));
+}
+
+//
+// Copy vendor scripts
+//
+function vendorScripts(done) {
+  gulp
+    .src(["node_modules/jquery/dist/jquery.min.js"])
+    .pipe(gulp.dest(scriptDist + "/vendor"));
+  done();
 }
 
 //
 // Compile script task
 //
 function scripts() {
-  return gulp.src([
-      'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-      scriptSource + '/**/*.js',
+  return gulp
+    .src([
+      "node_modules/bootstrap/dist/js/bootstrap.js",
+      scriptSource + "/**/*.js"
     ])
     .pipe(sourcemaps.init())
     .pipe(uglify())
-    .pipe(concat('scripts.min.js'))
+    .pipe(concat("scripts.min.js"))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(scriptDist));
 }
@@ -71,31 +102,37 @@ function scripts() {
 // Clean task (clear /dist)
 //
 function clean() {
-  return del.sync('dist');
+  return del.sync("dist");
 }
 
 //
 // Font task
 //
 function fonts() {
-  return gulp.src(fontSource + '/**/*')
-    .pipe(gulp.dest('dist/fonts'));
+  return gulp.src(fontSource + "/**/*").pipe(gulp.dest("dist/fonts"));
 }
 
 //
 // Image task
 //
 function images() {
-  return gulp.src(imageSource + '/**/*')
-    .pipe(cache(imagemin({
-      interlaced: true,
-      progressive: true,
-      svgoPlugins: [{
-        removeViewBox: false
-      }],
-      use: [pngquant()]
-    })))
-    .pipe(gulp.dest('dist/images'));
+  return gulp
+    .src(imageSource + "/**/*")
+    .pipe(
+      cache(
+        imagemin({
+          interlaced: true,
+          progressive: true,
+          svgoPlugins: [
+            {
+              removeViewBox: false
+            }
+          ],
+          use: [pngquant()]
+        })
+      )
+    )
+    .pipe(gulp.dest("dist/images"));
 }
 
 //
@@ -105,14 +142,13 @@ function clear() {
   return cache.clearAll();
 }
 
-
 //
 // Browser sync task
 //
 function runBrowser() {
   browserSync({
     server: {
-    	baseDir: './'
+      baseDir: pageDist
     },
     //proxy: domain,
     notify: true
@@ -131,19 +167,34 @@ function reloadBrowser(done) {
 // Tasks to run as source files are changed
 //
 function watchChanges() {
-  gulp.watch(scssSource + '/**/*.scss', gulp.series(styles, reloadBrowser));
-  gulp.watch(scriptSource + '/**/*.js', gulp.series(jslint, scripts, reloadBrowser));
-  gulp.watch(imageSource + '/**/*', gulp.series(images, reloadBrowser));
-  gulp.watch(fontSource + '/**/*', gulp.series(fonts, reloadBrowser));
-  gulp.watch('**/*.html', gulp.series(reloadBrowser));
+  gulp.watch(scssSource + "/**/*.scss", gulp.series(styles, reloadBrowser));
+  gulp.watch(
+    scriptSource + "/**/*.js",
+    gulp.series(jslint, scripts, reloadBrowser)
+  );
+  gulp.watch(imageSource + "/**/*", gulp.series(images, reloadBrowser));
+  gulp.watch(fontSource + "/**/*", gulp.series(fonts, reloadBrowser));
+  gulp.watch(pageSource + "/**/*.jade", gulp.series(jadeToHtml, reloadBrowser));
 }
 
 //
 // Default task
 //
-gulp.task('default', gulp.parallel(watchChanges, runBrowser));
+gulp.task("default", gulp.parallel(watchChanges, runBrowser));
 
 //
 // Build task
 //
-gulp.task('build', gulp.series(clear, fonts, images, styles, jslint, scripts));
+gulp.task(
+  "build",
+  gulp.series(
+    clear,
+    fonts,
+    images,
+    styles,
+    jslint,
+    scripts,
+    vendorScripts,
+    jadeToHtml
+  )
+);
