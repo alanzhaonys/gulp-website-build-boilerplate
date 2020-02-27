@@ -4,4 +4,12 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Variables
-@import '_variables';
+@import "_variables";
+
+// Fonts
+
+// Global
+@import "_global";
+
+// Index page
+@import "_index";
