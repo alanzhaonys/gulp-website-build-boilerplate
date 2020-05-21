@@ -9,22 +9,20 @@ html(lang="en" class="h-100")
 
   body(class="h-100 d-flex flex-column")
 
-    include ./includes/header.jade
+    include ../includes/header.jade
 
     main(class='flex-grow-1')
       div(class='container')
         div(class='row')
           div(class='col-4 text-left')
-            h1 Home
+            h1 Contact
             h2
               | description here
           div(class='col-8 text-left')
             p
               | Intro content here
-            p
-              a(href="/contact") Contact me
 
-    include ./includes/footer.jade
+    include ../includes/footer.jade
 
     script(src="/js/vendor/jquery.min.js")
     script(src="/js/scripts.min.js" defer)
