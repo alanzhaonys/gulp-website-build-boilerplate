@@ -1,11 +1,11 @@
 h1 {
-  font-size: 48px;
+  @include font-size(48px);
   font-weight: 600;
   color: $color-red;
 }
 
 h2 {
-  font-size: 30px;
+  @include font-size(30px);;
   font-weight: 600;
   color: $color-gray;
 }
@@ -29,7 +29,7 @@ input[type="email"] {
   border: none;
   outline: none;
   font-weight: 700;
-  font-size: 18px;
+  font-size: font-size(18px);
   transition: background 0.5s;
   text-transform: uppercase;
 
