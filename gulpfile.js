@@ -122,7 +122,7 @@ function cacheBust() {
 // Clean task (clear /dist)
 //
 function clean() {
-  return del.sync("dist");
+  return del.sync(pageDist);
 }
 
 //
@@ -166,7 +166,7 @@ function clear() {
 // Browser sync task
 //
 function runBrowser() {
-  browserSync({
+  return browserSync({
     server: {
       baseDir: pageDist
     },
