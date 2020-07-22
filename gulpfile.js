@@ -17,13 +17,13 @@ var gulp = require("gulp"),
 
 var domain = "";
 var pageSource = "src";
-var scssSource = "assets/styles";
+var styleSource = "assets/styles";
 var scriptSource = "assets/js";
 var imageSource = "assets/images";
 var fontSource = "assets/fonts";
 
 var pageDist = "dist";
-var scssDist = "dist/styles";
+var styleDist = "dist/styles";
 var scriptDist = "dist/js";
 var imageDist = "dist/images";
 var fontDist = "dist/fonts";
@@ -34,7 +34,10 @@ var fontDist = "dist/fonts";
 function buildHtml(done) {
   var YOUR_LOCALS = {};
   gulp
-    .src(pageSource + "/**/*.pug")
+    .src([
+        pageSource + "/**/*.pug",
+        "!" + pageSource + "/includes/**"
+      ])
     .pipe(
       pug({
         locals: YOUR_LOCALS
@@ -49,7 +52,7 @@ function buildHtml(done) {
 //
 function styles() {
   return gulp
-    .src(scssSource + "/**/*.scss")
+    .src(styleSource + "/**/*.scss")
     .pipe(sourcemaps.init())
     .pipe(scss().on("error", scss.logError))
     .pipe(
@@ -63,7 +66,7 @@ function styles() {
     })) 
     .pipe(cssnano())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(scssDist));
+    .pipe(gulp.dest(styleDist));
 }
 
 //
@@ -173,7 +176,7 @@ function reloadBrowser(done) {
 //
 function watchChanges() {
   gulp.watch(pageSource + "/**/*.pug", gulp.series(buildHtml, reloadBrowser));
-  gulp.watch(scssSource + "/**/*.scss", gulp.series(styles, reloadBrowser));
+  gulp.watch(styleSource + "/**/*.scss", gulp.series(styles, reloadBrowser));
   gulp.watch(
     scriptSource + "/**/*.js",
     gulp.series(jslint, scripts, reloadBrowser)
@@ -185,7 +188,7 @@ function watchChanges() {
 //
 // Default task
 //
-gulp.task("default", gulp.parallel(watchChanges, runBrowser));
+gulp.task("default", gulp.parallel(watchChanges, cacheBust, runBrowser));
 
 //
 // Build task
@@ -200,6 +203,7 @@ gulp.task(
     styles,
     jslint,
     scripts,
-    vendorScripts
+    vendorScripts,
+    cacheBust
   )
 );
