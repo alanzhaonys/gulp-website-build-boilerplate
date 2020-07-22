@@ -1,12 +1,16 @@
-// Boostrap grid
+// Just bootstrap grid
 //@import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
-// Boostrap all
+
+// All bootstrap components
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "../../node_modules/normalize.css/normalize.css";
 
 // Variables
 @import "_variables";
 
-// Fonts
+// Fonts here
+
 
 // Global
 @import "_global";
