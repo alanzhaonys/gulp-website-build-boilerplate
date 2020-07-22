@@ -1,7 +1,3 @@
-body {
-  background-image: url(https://www.google.com/bg.jpg);
-}
-
 h1 {
   @include font-size(48px);
   font-weight: 600;

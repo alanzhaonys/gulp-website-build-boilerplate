@@ -11,6 +11,7 @@ var gulp = require("gulp"),
   jshint = require("gulp-jshint"),
   pngquant = require("imagemin-pngquant"),
   cache = require("gulp-cache"),
+  cachebust = require('gulp-cache-bust'),
   pug = require("gulp-pug"),
   purgecss = require("gulp-purgecss"),
   autoprefixer = require("gulp-autoprefixer");
@@ -104,6 +105,17 @@ function scripts() {
     .pipe(concat("scripts.min.js"))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(scriptDist));
+}
+
+//
+// Cache bust
+//
+function cacheBust() {
+  return gulp.src(pageDist + "/**/*.html")
+    .pipe(cachebust({
+        type: 'timestamp'
+    }))
+    .pipe(gulp.dest(pageDist));
 }
 
 //
