@@ -30,7 +30,7 @@ var imageDist = "dist/images";
 var fontDist = "dist/fonts";
 
 //
-// Compile JADE to HTML
+// Compile PUG to HTML
 //
 function buildHtml(done) {
   var YOUR_LOCALS = {};
