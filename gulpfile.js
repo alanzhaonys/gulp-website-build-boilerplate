@@ -11,7 +11,7 @@ var gulp = require("gulp"),
   jshint = require("gulp-jshint"),
   pngquant = require("imagemin-pngquant"),
   cache = require("gulp-cache"),
-  jade = require("gulp-jade"),
+  pug = require("gulp-pug"),
   purgecss = require("gulp-purgecss"),
   autoprefixer = require("gulp-autoprefixer");
 
@@ -31,12 +31,12 @@ var fontDist = "dist/fonts";
 //
 // Compile JADE to HTML
 //
-function jadeToHtml(done) {
+function buildHtml(done) {
   var YOUR_LOCALS = {};
   gulp
-    .src(pageSource + "/**/*.jade")
+    .src(pageSource + "/**/*.pug")
     .pipe(
-      jade({
+      pug({
         locals: YOUR_LOCALS
       })
     )
@@ -172,7 +172,7 @@ function reloadBrowser(done) {
 // Tasks to run as source files are changed
 //
 function watchChanges() {
-  gulp.watch(pageSource + "/**/*.jade", gulp.series(jadeToHtml, reloadBrowser));
+  gulp.watch(pageSource + "/**/*.pug", gulp.series(buildHtml, reloadBrowser));
   gulp.watch(scssSource + "/**/*.scss", gulp.series(styles, reloadBrowser));
   gulp.watch(
     scriptSource + "/**/*.js",
@@ -194,7 +194,7 @@ gulp.task(
   "build",
   gulp.series(
     clear,
-    jadeToHtml,
+    buildHtml,
     fonts,
     images,
     styles,
