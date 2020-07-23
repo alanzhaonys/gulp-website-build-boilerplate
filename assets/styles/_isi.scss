@@ -1,0 +1,55 @@
+$isi-height: 30vh;
+$isi-header-height: 40px;
+$isi-zindex: 100;
+
+#isi {
+  position: relative;
+  z-index: $isi-zindex;
+}
+
+#sticky-isi {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: $isi-height;
+  z-index: $isi-zindex;
+  box-shadow: 0 0 12px 1px rgba(0,0,0,.5);
+
+  .isi-container {
+    .isi-body {
+      overflow-y: scroll;
+      height: calc(#{$isi-height} - #{$isi-header-height});
+    }
+  }
+}
+
+.isi-container {
+  background: #fff;
+
+  .isi-header {
+    position: relative;
+    height: $isi-header-height;
+    background-color: blue;
+    color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    span {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 0 20px;
+      height: $isi-header-height;
+    }
+  }
+
+  .isi-body {
+  }
+}

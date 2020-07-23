@@ -14,7 +14,6 @@ var gulp = require("gulp"),
   cache = require("gulp-cache"),
   cachebust = require('gulp-cache-bust'),
   pug = require("gulp-pug"),
-  purgecss = require("gulp-purgecss"),
   autoprefixer = require("gulp-autoprefixer");
 
 var domain = "";
@@ -67,9 +66,6 @@ function styles() {
       })
     )
     .pipe(concat("styles.min.css"))
-    .pipe(purgecss({
-      content: [pageDist + "/**/*.html"]
-    })) 
     .pipe(cssnano())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(styleDist));

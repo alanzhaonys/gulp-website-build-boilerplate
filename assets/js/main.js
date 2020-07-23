@@ -1,14 +1,9 @@
-import $ from "jquery";
+import * as $ from "jquery";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 
-$(document).ready(function() {
-  let test = new Test(100, 200);
-  console.log("X: " + test.x + ", Y: " + test.y);
-});
+import { ISI } from "./ISI";
 
-class Test {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-}
+$(document).ready(function() {
+  let isi = new ISI();
+  isi.listen();
+});
