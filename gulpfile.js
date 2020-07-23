@@ -1,6 +1,8 @@
 var gulp = require("gulp"),
   scss = require("gulp-sass"),
   browserSync = require("browser-sync"),
+  webpack = require("webpack"),
+  webpackStream = require("webpack-stream"),
   concat = require("gulp-concat"),
   uglify = require("gulp-uglify"),
   cssnano = require("gulp-cssnano"),
@@ -8,7 +10,7 @@ var gulp = require("gulp"),
   sourcemaps = require("gulp-sourcemaps"),
   del = require("del"),
   imagemin = require("gulp-imagemin"),
-  jshint = require("gulp-jshint"),
+  eslint = require("gulp-eslint"),
   pngquant = require("imagemin-pngquant"),
   cache = require("gulp-cache"),
   cachebust = require('gulp-cache-bust'),
@@ -53,7 +55,9 @@ function buildHtml(done) {
 //
 function styles() {
   return gulp
-    .src(styleSource + "/**/*.scss")
+    .src([
+      styleSource + "/**/*.scss"
+    ])
     .pipe(sourcemaps.init())
     .pipe(scss().on("error", scss.logError))
     .pipe(
@@ -75,20 +79,12 @@ function styles() {
 //
 function jslint() {
   return gulp
-    .src(["gulpfile.js", scriptSource + "/**/*.js"])
-    .pipe(jshint())
-    .pipe(jshint.reporter("default"))
-    .pipe(jshint.reporter("fail"));
-}
-
-//
-// Copy vendor scripts
-//
-function vendorScripts(done) {
-  gulp
-    .src(["node_modules/jquery/dist/jquery.min.js"])
-    .pipe(gulp.dest(scriptDist + "/vendor"));
-  done();
+    .src([
+      scriptSource + "/**/*.js"
+    ])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 }
 
 //
@@ -97,13 +93,9 @@ function vendorScripts(done) {
 function scripts() {
   return gulp
     .src([
-      "node_modules/bootstrap/dist/js/bootstrap.js",
       scriptSource + "/**/*.js"
     ])
-    .pipe(sourcemaps.init())
-    .pipe(uglify())
-    .pipe(concat("scripts.min.js"))
-    .pipe(sourcemaps.write())
+    .pipe(webpackStream(require('./webpack.config.js')), webpack)
     .pipe(gulp.dest(scriptDist));
 }
 
@@ -215,7 +207,6 @@ gulp.task(
     styles,
     jslint,
     scripts,
-    vendorScripts,
     cacheBust
   )
 );
