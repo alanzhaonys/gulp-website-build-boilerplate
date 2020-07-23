@@ -4,7 +4,6 @@ var gulp = require("gulp"),
   webpack = require("webpack"),
   webpackStream = require("webpack-stream"),
   concat = require("gulp-concat"),
-  uglify = require("gulp-uglify"),
   cssnano = require("gulp-cssnano"),
   rename = require("gulp-rename"),
   sourcemaps = require("gulp-sourcemaps"),
@@ -30,6 +29,8 @@ var styleDist = "dist/styles";
 var scriptDist = "dist/js";
 var imageDist = "dist/images";
 var fontDist = "dist/fonts";
+
+var mode = "development";
 
 //
 // Compile PUG to HTML
@@ -91,11 +92,15 @@ function jslint() {
 // Compile script task
 //
 function scripts() {
+  var config = require('./webpack.development.js');
+  if (mode == "production") {
+    config = require('./webpack.production.js');
+  }
   return gulp
     .src([
       scriptSource + "/**/*.js"
     ])
-    .pipe(webpackStream(require('./webpack.config.js')), webpack)
+    .pipe(webpackStream(config), webpack)
     .pipe(gulp.dest(scriptDist));
 }
 
@@ -176,6 +181,14 @@ function reloadBrowser(done) {
 }
 
 //
+// Set production mode
+//
+function setProductionMode(done) {
+  mode = "production";
+  done();
+}
+
+//
 // Tasks to run as source files are changed
 //
 function watchChanges() {
@@ -200,6 +213,7 @@ gulp.task("default", gulp.parallel(watchChanges, cacheBust, runBrowser));
 gulp.task(
   "build",
   gulp.series(
+    setProductionMode,
     clear,
     buildHtml,
     fonts,

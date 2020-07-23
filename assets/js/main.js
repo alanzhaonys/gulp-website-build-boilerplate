@@ -1,4 +1,5 @@
 import $ from "jquery";
+import "bootstrap/dist/js/bootstrap.bundle.js";
 
 $(document).ready(function() {
   let test = new Test(100, 200);
