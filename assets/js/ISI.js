@@ -4,7 +4,6 @@ export class ISI {
   constructor() {
     this.isi = $("#isi");
     this.stickyIsi = $("#sticky-isi");
-    this.isSticky = true;
     this.scrollPos = 0;
     this.initState();
   }
@@ -29,12 +28,15 @@ export class ISI {
   initState() {
     if (this.isInViewport()) {
       //console.log("I am in viewport");
-      $("#sticky-isi").hide();
-      this.isSticky = false;
+      if (this.stickyIsi.is(':visible')) {
+        this.stickyIsi.hide();
+      }
     } else {
       //console.log("I am not in viewport");
-      $("#sticky-isi").show();
-      this.isSticky = true;
+      if (!this.stickyIsi.is(':visible')) {
+        this.stickyIsi.show();
+        this.stickyIsi.find('.isi-body').animate({ scrollTop: 0 }, 500); 
+      }
     }
   }
 
