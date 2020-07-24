@@ -1,8 +1,9 @@
-// Just bootstrap grid
-//@import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
+// Just some bootstrap components
+//@import "node_modules/bootstrap/scss/bootstrap-grid.scss";
+//@import "node_modules/bootstrap/scss/bootstrap-reboot.scss";
 
 // All bootstrap components
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/bootstrap/scss/bootstrap.scss";
 
 // Variables
 @import "_variables";
