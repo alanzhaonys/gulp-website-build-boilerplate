@@ -25,6 +25,8 @@ module.exports = {
          cache: true,
          parallel: true,
          sourceMap: true,
+         // Extract comments into a separate file
+         extractComments: true,
          uglifyOptions: {
            mangle: true,
            ouput: {

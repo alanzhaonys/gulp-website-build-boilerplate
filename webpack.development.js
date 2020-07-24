@@ -3,6 +3,7 @@ const distDir = path.resolve(__dirname, 'dist/js');
 
 module.exports = {
     mode: 'development',
+    devtool: 'inline-source-map',
     output: {
         path: distDir,
         filename: 'scripts.min.js'

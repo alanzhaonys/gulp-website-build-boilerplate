@@ -12,7 +12,7 @@ var gulp = require("gulp"),
   eslint = require("gulp-eslint"),
   pngquant = require("imagemin-pngquant"),
   cache = require("gulp-cache"),
-  cachebust = require('gulp-cache-bust'),
+  cachebust = require("gulp-cache-bust"),
   pug = require("gulp-pug"),
   autoprefixer = require("gulp-autoprefixer");
 
@@ -37,13 +37,10 @@ var mode = "development";
 function buildHtml(done) {
   var YOUR_LOCALS = {};
   gulp
-    .src([
-        pageSource + "/**/*.pug",
-        "!" + pageSource + "/includes/**"
-      ])
+    .src([pageSource + "/**/*.pug", "!" + pageSource + "/includes/**"])
     .pipe(
       pug({
-        locals: YOUR_LOCALS
+        locals: YOUR_LOCALS,
       })
     )
     .pipe(gulp.dest(pageDist));
@@ -55,19 +52,23 @@ function buildHtml(done) {
 //
 function styles() {
   return gulp
-    .src([
-      styleSource + "/**/*.scss"
-    ])
+    .src([styleSource + "/**/*.scss"])
     .pipe(sourcemaps.init())
     .pipe(scss().on("error", scss.logError))
     .pipe(
       autoprefixer({
-        cascade: false
+        cascade: false,
       })
     )
     .pipe(concat("styles.min.css"))
-    .pipe(cssnano())
-    .pipe(sourcemaps.write())
+    .pipe(
+      cssnano({
+        discardComments: {
+          removeAll: true,
+        },
+      })
+    )
+    .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(styleDist));
 }
 
@@ -76,9 +77,7 @@ function styles() {
 //
 function jslint() {
   return gulp
-    .src([
-      scriptSource + "/**/*.js"
-    ])
+    .src([scriptSource + "/**/*.js"])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
@@ -88,14 +87,12 @@ function jslint() {
 // Compile script task
 //
 function scripts() {
-  var config = require('./webpack.development.js');
+  var config = require("./webpack.development.js");
   if (mode == "production") {
-    config = require('./webpack.production.js');
+    config = require("./webpack.production.js");
   }
   return gulp
-    .src([
-      scriptSource + "/**/*.js"
-    ])
+    .src([scriptSource + "/**/*.js"])
     .pipe(webpackStream(config), webpack)
     .pipe(gulp.dest(scriptDist));
 }
@@ -104,10 +101,13 @@ function scripts() {
 // Cache bust
 //
 function cacheBust() {
-  return gulp.src(pageDist + "/**/*.html")
-    .pipe(cachebust({
-        type: 'timestamp'
-    }))
+  return gulp
+    .src(pageDist + "/**/*.html")
+    .pipe(
+      cachebust({
+        type: "timestamp",
+      })
+    )
     .pipe(gulp.dest(pageDist));
 }
 
@@ -138,10 +138,10 @@ function images() {
           progressive: true,
           svgoPlugins: [
             {
-              removeViewBox: false
-            }
+              removeViewBox: false,
+            },
           ],
-          use: [pngquant()]
+          use: [pngquant()],
         })
       )
     )
@@ -161,10 +161,10 @@ function clear() {
 function runBrowser() {
   return browserSync({
     server: {
-      baseDir: pageDist
+      baseDir: pageDist,
     },
     //proxy: domain,
-    notify: true
+    notify: true,
   });
 }
 
