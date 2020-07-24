@@ -3,7 +3,6 @@ var gulp = require("gulp"),
   browserSync = require("browser-sync"),
   concat = require("gulp-concat"),
   uglify = require("gulp-uglify"),
-  cssnano = require("gulp-cssnano"),
   rename = require("gulp-rename"),
   sourcemaps = require("gulp-sourcemaps"),
   del = require("del"),
@@ -65,8 +64,7 @@ function styles() {
     .pipe(purgecss({
       content: [pageDist + "/**/*.html"]
     })) 
-    .pipe(cssnano())
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(styleDist));
 }
 
