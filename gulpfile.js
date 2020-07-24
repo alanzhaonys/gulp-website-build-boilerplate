@@ -145,7 +145,7 @@ function images() {
         })
       )
     )
-    .pipe(gulp.dest("dist/images"));
+    .pipe(gulp.dest(imageDist));
 }
 
 //
