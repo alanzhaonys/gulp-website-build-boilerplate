@@ -40,7 +40,8 @@ function buildHtml(done) {
       ])
     .pipe(
       pug({
-        locals: YOUR_LOCALS
+        locals: YOUR_LOCALS,
+        pretty: true
       })
     )
     .pipe(gulp.dest(pageDist));

@@ -1,15 +1,13 @@
 extends includes/_base
 
 block content
-  main(class='flex-grow-1')
-    div(class='container')
-      div(class='row')
-        div(class='col-4 text-left')
+  main.flex-grow-1
+    .container
+      .row
+        .col-4.text-left
           h1 Home
-          h2
-            | description here
-        div(class='col-8 text-left')
+          h2 description here
+        .col-8.text-left
+          p Intro content here
           p
-            | Intro content here
-          p
-            a(href="/contact") Contact me
+            a(href='/contact') Contact me
