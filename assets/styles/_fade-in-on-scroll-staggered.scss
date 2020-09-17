@@ -1,0 +1,10 @@
+.fade-in-on-scroll-staggered {
+  .staggered-child {
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+}
