@@ -1,9 +1,13 @@
 // Just some bootstrap components
-//@import "node_modules/bootstrap/scss/bootstrap-grid.scss";
-//@import "node_modules/bootstrap/scss/bootstrap-reboot.scss";
+@import "node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "node_modules/bootstrap/scss/bootstrap-reboot.scss";
+@import "node_modules/bootstrap/scss/_utilities.scss";
 
 // All bootstrap components
-@import "node_modules/bootstrap/scss/bootstrap.scss";
+//@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+// Hamburger menu
+@import "node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 
 // Variables
 @import "_variables";
@@ -13,11 +17,14 @@
 
 // Global
 @import "_global";
+@import "_type";
 
-// Index page
-@import "_index";
+// Components
 @import "_isi";
 @import "_header";
 @import "_footer";
 @import "_button";
 @import "_form";
+
+// Pages
+@import "_index";

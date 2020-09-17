@@ -22,12 +22,15 @@ var styleSource = "assets/styles";
 var scriptSource = "assets/js";
 var imageSource = "assets/images";
 var fontSource = "assets/fonts";
+var downloadSource = "assets/downloads";
+var faviconSource = "assets/favicons";
 
 var pageDist = "dist";
 var styleDist = "dist/styles";
 var scriptDist = "dist/js";
 var imageDist = "dist/images";
 var fontDist = "dist/fonts";
+var downloadDist = "dist/downloads";
 
 var mode = "development";
 
@@ -97,6 +100,31 @@ function scripts() {
     .pipe(webpackStream(config), webpack)
     .pipe(gulp.dest(scriptDist));
 }
+
+//
+// Copy downloads
+//
+function downloads() {
+  return gulp.src(downloadSource + "/**/*")
+    .pipe(gulp.dest(downloadDist));
+}
+
+//
+// Copy favicons
+//
+function favicons() {
+  return gulp.src(faviconSource + "/**/*")
+    .pipe(gulp.dest(pageDist));
+}
+
+//
+// Copy .ebextensions
+//
+function ebextensions() {
+  return gulp.src('./ebextensions/**/*')
+    .pipe(gulp.dest("dist/.ebextensions"));
+}
+
 
 //
 // Cache bust
@@ -215,9 +243,12 @@ gulp.task(
     buildHtml,
     fonts,
     images,
+    downloads,
+    favicons,
     styles,
     jslint,
     scripts,
+    ebextensions,
     cacheBust
   )
 );

@@ -1,0 +1,39 @@
+h1,
+h2,
+h3 {
+  font-family: 'Racing Sans One', cursive;
+}
+
+h1 {
+  @include font-size(48px);
+  font-weight: 600;
+  color: $color-red;
+}
+
+h2 {
+  @include font-size(30px);
+  font-weight: 600;
+  color: $color-gray;
+}
+
+sup {
+  font-size: 50%;
+  top: -1em;
+
+  &.large {
+    font-size: 100%;
+    top: -5px;
+    left: -3px;
+  }
+
+  .flush {
+    margin-left: -6px;
+    padding-right: 2px;
+    font-size: 16px;
+    top: 0em;
+
+    &.asterisk {
+      margin-left: -9px;
+    }
+  }
+}

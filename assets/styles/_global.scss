@@ -6,3 +6,10 @@ body {
   margin: 0;
   padding: 0;
 }
+
+main {
+  margin-top: $main-nav-mobile-height;
+  @include media-breakpoint-up(lg) {
+    margin-top: $main-nav-desktop-height;
+  }
+}

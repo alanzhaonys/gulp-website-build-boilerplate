@@ -1,8 +1,6 @@
-// Enable RFS
-$enable-responsive-font-sizes: true;
+$body-font-size: 18px;;
 
-$body-font-size: 20em;
-
+$color-blue: navy;
 $color-red: green;
 $color-yellow: #f6cc0d;
 $color-light-yellow: #ffee00;
@@ -11,3 +9,11 @@ $color-light-purple: #c0237d;
 $color-dark-purple: #3b0f28;
 $color-gray: #cc8b8b;
 $color-white: #fff;
+
+// Main nav
+$main-nav-desktop-height: 100px;
+$main-nav-mobile-height: 70px;
+
+// Z-indexes
+$header-zindex: 200;
+$mobile-nav-zindex: 300;

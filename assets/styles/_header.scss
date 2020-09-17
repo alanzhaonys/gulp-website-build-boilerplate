@@ -1,5 +1,135 @@
 header {
-  min-height: 80px;
-  padding: 0;
-  margin: 0;
+  z-index: $header-zindex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  left-margin: auto;
+  right-margin: auto;
+  transition: 0.3s;
+
+  &.hide {
+    top: -$main-nav-mobile-height;
+    @include media-breakpoint-up(lg) {
+      top: -$main-nav-desktop-height;
+    }
+  }
+
+  #main-nav {
+    background-color: $color-blue;
+    height: $main-nav-mobile-height;
+    @include media-breakpoint-up(lg) {
+      height: $main-nav-desktop-height;
+    }
+
+    // Hamburger bar color
+    .hamburger {
+      outline: none;
+      padding: 8px;
+
+      .hamburger-box {
+        width: 30px;
+      }
+
+      .hamburger-inner {
+        background-color: $color-yellow;
+        width: 30px;
+        height: 3px;
+        top: 65%;
+
+        &:before,
+        &:after {
+          background-color: $color-yellow;
+          width: 30px;
+          height: 3px;
+        }
+      }
+
+      &:not(.is-active) {
+        .hamburger-inner {
+          background-color: $color-white;
+
+          &:before,
+          &:after {
+            background-color: $color-white;
+          }
+        }
+      }
+    }
+  }
+
+  nav {
+    &#desktop-nav {
+      a {
+        position: relative;
+        padding: 10px 20px;
+        font-size: 16px;
+        line-height: 1.2;
+        letter-spacing: 0.5px;
+        color: $color-white;
+        font-weight: 500;
+        text-decoration: none;
+        @include media-breakpoint-up(xl) {
+          font-size: 18px;
+        }
+
+        &:after {
+          display: block;
+          content: '';
+          width: 0;
+          height: 3px;
+          background-color: $color-red;
+          bottom: 0;
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          transition: width 0.2s ease-in-out;
+        }
+
+        &:hover {
+          &:after {
+            width: 60%;
+          }
+        }
+      }
+    }
+
+    &#mobile-nav {
+      z-index: $mobile-nav-zindex;
+      position: absolute;
+      top: $main-nav-mobile-height;
+      right: 0;
+      width: 100%;
+      background-color: $color-blue;
+
+      // Slide down/up animation
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.8s ease;
+
+      &.show {
+        max-height: 1000px;
+      }
+
+      a:not(.btn) {
+        padding: 15px;
+        border: 1px solid #000;
+        border-bottom: 2px solid $color-white;
+        color: $color-white;
+        font-weight: 700;
+        @include font-size(20px);
+      }
+
+      .btn {
+        margin: 15px auto;
+      }
+    }
+
+    .active:not(.btn) {
+      color: $color-red !important;
+    }
+  }
 }
+

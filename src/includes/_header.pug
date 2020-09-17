@@ -1,5 +1,21 @@
-header.flex-shrink-0
-  .container
-    .row
-      .col.col-12
-        img(src='http://via.placeholder.com/140x80' alt='logo')
+header
+  #main-nav
+    .container
+      .row.d-flex.justify-content-between
+        .col.col-2.d-flex.align-items-center.justify-content-start.p-lg-0
+          a(href='/')
+            img.main-logo(src='http://via.placeholder.com/140x80' alt='Main Logo')
+
+        .col.col-10.d-flex.align-items-center.justify-content-end.p-lg-0
+          nav#desktop-nav.d-none.d-lg-flex.align-items-center
+            each page, key in menu_config
+              - var activeClass = (pageSlug === key) ? 'active ' : ''
+                a(href=page.href class=activeClass + 'd-block text-center')!= page.label
+          button.hamburger.hamburger--spin-r.d-lg-none(type='button' aria-label='Menu' aria-controls='mobile-nav' aria-expanded='false')
+            span.hamburger-box
+              span.hamburger-inner
+
+  nav#mobile-nav.flex-column.d-lg-none
+    each page, key in menu_config
+      - var activeClass = (pageSlug === key) ? 'active ' : ''
+        a(href=page.href class=activeClass + 'd-block text-center')!= page.label
