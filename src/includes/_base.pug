@@ -73,6 +73,8 @@ html(lang="en")
     noscript
       iframe(src="//www.googletagmanager.com/ns.html?id=" + gtmCode height="0" width="0" style="display:none;visibility:hidden")
 
+    include _cookie
+
     include _header
 
     block content
@@ -81,5 +83,7 @@ html(lang="en")
     include _isi
 
     include _footer
+
+    include _modals
 
     script(src="/js/scripts.min.js" defer)

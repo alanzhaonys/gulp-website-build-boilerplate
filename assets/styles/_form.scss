@@ -1,4 +1,44 @@
-.radio-box {
+input[type="checkbox"] {
+  border: 1px solid yellow;
+  width: 0;
+  height: 0;
+  padding-right: 40px;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $color-blue;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    padding-left: 3px;
+  }
+
+  &:hover {
+    &:before {
+    }
+  }
+
+  &:checked {
+    &:before {
+      content: "✓";
+      color: $color-white;
+    }
+  }
+
+  & + label {
+    margin-left: 20px;
+  }
+
+  &:checked + label {
+    font-weight: 500 !important;
+  }
+}
+
+input[type="radio"] {
   font-weight: 700;
   padding-top: 2px;
   padding-left: 40px;

@@ -11,6 +11,10 @@ export class FadeInOnScroll {
     $(window).scroll(() => {
       this.fadeIn();
     });
+
+    $(window).resize(() => {
+      this.fadeIn();
+    });
   }
 
   fadeIn() {
