@@ -4,8 +4,8 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  left-margin: auto;
-  right-margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   transition: 0.3s;
 
   &.hide {
@@ -20,6 +20,9 @@ header {
     height: $main-nav-mobile-height;
     @include media-breakpoint-up(lg) {
       height: $main-nav-desktop-height;
+    }
+
+    .main-logo {
     }
 
     // Hamburger bar color

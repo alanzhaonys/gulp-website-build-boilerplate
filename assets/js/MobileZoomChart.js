@@ -19,7 +19,7 @@ export class MobileZoomChart {
 
     // For single chart
     if (window.innerWidth <= 992) {
-      $(".zoom-chart").click(function (e, el) {
+      $(".zoom-chart").click((e, el) => {
         // Remove existing chart modal in DOM if any
         $("#chart-modal").remove();
 
@@ -31,7 +31,7 @@ export class MobileZoomChart {
           '"/></div></div>';
         $("body").append(modal);
 
-        $("#chart-modal").click(function () {
+        $("#chart-modal").click(() => {
           $(this).remove();
         });
       });

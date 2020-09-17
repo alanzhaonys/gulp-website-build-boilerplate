@@ -1,3 +1,6 @@
+// Enable RFS
+$enable-responsive-font-sizes: true;
+
 $body-font-size: 18px;;
 
 $color-blue: navy;
@@ -15,6 +18,7 @@ $main-nav-desktop-height: 100px;
 $main-nav-mobile-height: 70px;
 
 // Z-indexes
-$modal-zindex: 100;
 $header-zindex: 200;
 $mobile-nav-zindex: 300;
+$modal-zindex: 400;
+$cookie-zindex: 500;

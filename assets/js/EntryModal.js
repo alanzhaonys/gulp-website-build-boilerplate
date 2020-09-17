@@ -7,12 +7,14 @@ export class EntryModal {
     this.initState();
   }
 
-  listen() {
+  listen(callback) {
     let thisRef = this;
 
     $('#enter-btn').on('click', () => {
       thisRef.entryModal.fadeOut();
       Cookie.set('entry-modal-shown', true);
+
+      callback();
     });
   }
 

@@ -3,7 +3,7 @@ import * as $ from "jquery";
 import { Nav } from "./Nav";
 import { ISI } from "./ISI";
 import { EntryModal } from "./EntryModal";
-import { Cookie } from "./Cookie";
+import { CookieBar } from "./CookieBar";
 import { HamburgerMenu } from "./HamburgerMenu";
 import { SmoothScrolling } from "./SmoothScrolling";
 import { EqualHeight } from "./EqualHeight";
@@ -31,10 +31,11 @@ $(document).ready(function() {
   isi.listen();
 
   let entryModal = new EntryModal();
-  entryModal.listen();
-
-  let cookie = new Cookie();
-  cookie.listen();
+  entryModal.listen(() => {
+    // Show cookie bar after bypassing the entry modal
+    let cookieBar = new CookieBar();
+    cookieBar.listen();
+  });
 
   let hamburgerMenu = new HamburgerMenu();
   hamburgerMenu.listen();

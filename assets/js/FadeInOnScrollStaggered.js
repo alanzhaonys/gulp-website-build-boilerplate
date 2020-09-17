@@ -21,12 +21,12 @@ export class FadeInOnScroll {
     let thisRef = this;
     let delay = 300;
 
-    $(".fade-in-on-scroll-staggered").each(function () {
+    $(".fade-in-on-scroll-staggered").each(() => {
       if (thisRef.isInViewport($(this))) {
         $(this)
           .find(".staggered-child")
-          .each(function (i, child) {
-            setTimeout(function () {
+          .each((i, child) => {
+            setTimeout(() => {
               $(child).addClass("show");
             }, delay * i);
           });

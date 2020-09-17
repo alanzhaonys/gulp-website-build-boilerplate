@@ -18,7 +18,7 @@ export class SmoothScrolling {
       // Remove links that don't actually link to anything
       .not('[href="#"]')
       .not('[href="#0"]')
-      .click(function (event) {
+      .click((event) => {
         // On-page links
         if (
           location.pathname.replace(/^\//, "") ==
@@ -43,7 +43,10 @@ export class SmoothScrolling {
             //
             // Determine offset here because of the damn sticky subnavs
             //
-            if ($("header").hasClass("sticky") && currentScrollTop - targetScrollTop > 0) {
+            if (
+              $("header").hasClass("sticky") &&
+              currentScrollTop - targetScrollTop > 0
+            ) {
               // Scroll is going up
               offset = $("header").height();
               //console.log("need to go up");
@@ -57,7 +60,7 @@ export class SmoothScrolling {
                 scrollTop: target.offset().top - offset - 1,
               },
               scrollSpeed,
-              function () {
+              () => {
                 // Callback after animation
                 // Add hash (#) to URL when done scrolling (default click behavior)
                 //window.location.hash = target.attr("id");
@@ -92,4 +95,3 @@ export class SmoothScrolling {
     }
   }
 }
-

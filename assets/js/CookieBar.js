@@ -1,25 +1,28 @@
 import * as $ from "jquery";
 import * as Cookie from "js-cookie";
 
-export class EntryModal {
+export class CookieBar {
   constructor() {
+    this.delay = 3000;
     this.cookie = $("#cookie");
     this.initState();
   }
 
   listen() {
-    $("#cookie-close").on("click", function () {
+    $("#cookie-close").on("click", () => {
       this.cookie.fadeOut();
-      Cookies.set("cookie-acked", true);
+      Cookie.set("cookie-acked", true);
     });
 
     this.showCookie();
   }
 
   showCookie() {
-    var cookieShown = Cookies.get("cookie-acked");
+    var cookieShown = Cookie.get("cookie-acked");
     if (!cookieShown) {
-      this.cookie.fadeIn();
+        setTimeout(() => {
+        this.cookie.fadeIn();
+      }, this.delay);
     }
   }
 
