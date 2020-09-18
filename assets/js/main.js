@@ -27,8 +27,8 @@ $(document).ready(function() {
   let nav = new Nav();
   nav.listen();
 
-  let isi = new ISI();
-  isi.listen();
+  //let isi = new ISI();
+  //isi.listen();
 
   let entryModal = new EntryModal();
   entryModal.listen(() => {
