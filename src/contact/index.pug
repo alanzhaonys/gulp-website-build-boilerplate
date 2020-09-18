@@ -1,13 +1,44 @@
 extends ../includes/_base
 
 block content
-    main(class='flex-grow-1')
-      div(class='container')
-        div(class='row')
-          div(class='col-4 text-left')
+    main.flex-grow-1
+      .container
+        .row
+          div.col-4.text-left
             h1 Contact
             h2
               | description here
-          div(class='col-8 text-left')
-            p
-              | Intro content here
+          div.col-8.text-left
+            form
+              .form-row
+                .form-group.col-md-6
+                  label(for='inputEmail4') Email
+                  input#inputEmail4.form-control(type='email' placeholder='Email')
+                .form-group.col-md-6
+                  label(for='inputPassword4') Password
+                  input#inputPassword4.form-control(type='password' placeholder='Password')
+              .form-group
+                label(for='inputAddress') Address
+                input#inputAddress.form-control(type='text' placeholder='1234 Main St')
+              .form-group
+                label(for='inputAddress2') Address 2
+                input#inputAddress2.form-control(type='text' placeholder='Apartment, studio, or floor')
+              .form-row
+                .form-group.col-md-6
+                  label(for='inputCity') City
+                  input#inputCity.form-control(type='text')
+                .form-group.col-md-4
+                  label(for='inputState') State
+                  select#inputState.form-control
+                    option(selected='') Choose...
+                    option ...
+                .form-group.col-md-2
+                  label(for='inputZip') Zip
+                  input#inputZip.form-control(type='text')
+              .form-group
+                .form-check
+                  input#gridCheck.form-check-input(type='checkbox')
+                  label.form-check-label(for='gridCheck')
+                    | Check me out
+              button.btn.btn-primary(type='submit') Sign in
+
