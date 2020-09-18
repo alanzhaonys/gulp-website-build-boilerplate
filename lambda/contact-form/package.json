@@ -1,0 +1,10 @@
+{
+  "name": "contact-form",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alan Zhao",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
+}
