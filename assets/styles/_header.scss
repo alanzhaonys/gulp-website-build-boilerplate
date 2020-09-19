@@ -116,7 +116,7 @@ header {
         max-height: 1000px;
       }
 
-      a:not(.btn) {
+      a {
         padding: 15px;
         border: 1px solid #000;
         border-bottom: 2px solid $color-white;
@@ -124,13 +124,9 @@ header {
         font-weight: 700;
         @include font-size(20px);
       }
-
-      .btn {
-        margin: 15px auto;
-      }
     }
 
-    .active:not(.btn) {
+    .active {
       color: $color-red !important;
     }
   }
