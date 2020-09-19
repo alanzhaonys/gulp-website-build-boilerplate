@@ -1,0 +1,3 @@
+mixin responsive_image(url1x, url2x, alt = '', id = '', class = '') {
+  img(srcset=url1x + ', ' + url2x alt=alt id=id class=class)
+}

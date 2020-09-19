@@ -1,5 +1,7 @@
-mixin internal_head(title)
-  section.container.internal-head
+include ./_chart
+
+mixin header(title)
+  section.container.header
     .row
       .col.col-12.internal-width
         h1.upper-case.internal-head-title!= title

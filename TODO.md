@@ -1,3 +1,2 @@
 htaccess compression
-js-cookie
-favicon
+indivisual event

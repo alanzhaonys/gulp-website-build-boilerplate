@@ -18,6 +18,16 @@ if (typeof NodeList.prototype.forEach !== 'function')  {
 
 $(document).ready(function() {
 
+  // Start from top after page reload for better parallax experience
+  // After document is ready
+  $("html, body").scrollTop(0);
+  // After load event
+  $(window).on("load", function () {
+    setTimeout(function () {
+      $("html, body").scrollTop(0);
+    }, 0);
+  });
+
   // Initialize lozad
   const observer = lozad();
   observer.observe();

@@ -1,11 +1,11 @@
-  mixin chart(name, title, url, mobileUrl, alt, addtlClass = '')
-    .row(id=name class="chart fade-in-on-scroll " + addtlClass)
-      .col.col-12
-        .row
-          .col.col-12.d-flex.justify-content-center.align-items-center                
-            p.text-uppercase!= title                                                  
-        .row
-          .col.col-12.d-flex.justify-content-center.align-items-center                
-            img.chart-img.d-none.d-lg-block.lozad(data-src=url alt=alt title=alt) 
-            img.chart-img.d-block.d-lg-none.lozad(data-src=mobileUrl alt=alt title=alt)
-        a.btn.zoom-chart.d-lg-none(href="#" onclick="return false" data-target=name) ZOOM IN
+mixin chart(name, title, url, mobileUrl, alt, addtlClass = '')
+  .row(id=name class="chart fade-in-on-scroll " + addtlClass)
+    .col.col-12
+      .row
+        .col.col-12.d-flex.justify-content-center.align-items-center                
+          p.text-uppercase!= title                                                  
+      .row
+        .col.col-12.d-flex.justify-content-center.align-items-center                
+          img.chart-img.d-none.d-lg-block.lozad(data-src=url alt=alt title=alt) 
+          img.chart-img.d-block.d-lg-none.lozad(data-src=mobileUrl alt=alt title=alt)
+      a.btn.zoom-chart.d-lg-none(href="#" onclick="return false" data-target=name) ZOOM IN
