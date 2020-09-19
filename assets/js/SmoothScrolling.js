@@ -19,17 +19,18 @@ export class SmoothScrolling {
       .not('[href="#"]')
       .not('[href="#0"]')
       .click((event) => {
+        let clicked = event.target;
         // On-page links
         if (
           location.pathname.replace(/^\//, "") ==
-            this.pathname.replace(/^\//, "") &&
-          location.hostname == this.hostname
+            clicked.pathname.replace(/^\//, "") &&
+          location.hostname == clicked.hostname
         ) {
           // Figure out element to scroll to
-          var target = $(this.hash);
+          var target = $(clicked.hash);
           target = target.length
             ? target
-            : $("[name=" + this.hash.slice(1) + "]");
+            : $("[name=" + clicked.hash.slice(1) + "]");
 
           let currentScrollTop = $(window).scrollTop();
           let targetScrollTop = target.offset().top;
