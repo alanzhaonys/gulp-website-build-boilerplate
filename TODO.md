@@ -1,2 +1,2 @@
 htaccess compression
-indivisual event
+style sheet

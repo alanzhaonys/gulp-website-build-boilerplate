@@ -44,7 +44,7 @@ function buildHtml(done) {
     .pipe(
       pug({
         locals: YOUR_LOCALS,
-        pretty: (mode == 'development') ? true : false
+        pretty: mode == "development" ? true : false,
       })
     )
     .pipe(gulp.dest(pageDist));
@@ -105,26 +105,22 @@ function scripts() {
 // Copy downloads
 //
 function downloads() {
-  return gulp.src(downloadSource + "/**/*")
-    .pipe(gulp.dest(downloadDist));
+  return gulp.src(downloadSource + "/**/*").pipe(gulp.dest(downloadDist));
 }
 
 //
 // Copy favicons
 //
 function favicons() {
-  return gulp.src(faviconSource + "/**/*")
-    .pipe(gulp.dest(pageDist));
+  return gulp.src(faviconSource + "/**/*").pipe(gulp.dest(pageDist));
 }
 
 //
 // Copy .ebextensions
 //
 function ebextensions() {
-  return gulp.src('./ebextensions/**/*')
-    .pipe(gulp.dest("dist/.ebextensions"));
+  return gulp.src("./ebextensions/**/*").pipe(gulp.dest("dist/.ebextensions"));
 }
-
 
 //
 // Cache bust
@@ -235,6 +231,15 @@ gulp.task("default", gulp.parallel(watchChanges, cacheBust, runBrowser));
 //
 // Build task
 //
+
+gulp.task("html", gulp.series(clear, buildHtml));
+
+gulp.task("images", gulp.series(clear, images));
+
+gulp.task("scripts", gulp.series(clear, jslint, scripts));
+
+gulp.task("styles", gulp.series(clear, styles));
+
 gulp.task(
   "build",
   gulp.series(
