@@ -28,8 +28,10 @@ $mobile-nav-zindex: 300;
 $modal-zindex: 400;
 $cookie-zindex: 500;
 
-$isi-height: 20vh;
-$isi-min-height: 200px;
+$isi-desktop-height: 20vh;
+$isi-mobile-height: 15vh;
+$isi-min-desktop-height: 200px;
+$isi-min-mobile-height: 100px;
 $isi-header-height: 40px;
 $isi-shrink-height: $isi-header-height;
 $isi-zindex: 100;
