@@ -35,10 +35,13 @@ When you enable ISI, two components will show up on the page
 Sticky ISI
 Inline ISI appears before the footer
 
+`.toggle-isi` class
+`<a href="#" onclick="return false" class="toggle-isi">Important Site Information</a>`
+
 `src/includes/_isi.pug`
 `src/includes/_isi-body.pug`
 
-By default, ISI will show up on all pages except 404 page.
+By default, ISI will show up on all pages except the standalone `/isi` and `/404` pages.
 To disable ISI for a particular page, add the page slug to `disableIsiPageSlugs` variable.
 
 # Favicon
