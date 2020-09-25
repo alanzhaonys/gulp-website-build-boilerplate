@@ -8,8 +8,8 @@ body {
 }
 
 main {
-  margin-top: $main-nav-mobile-height;
+  margin-top: $top-bar-mobile-height + $main-nav-mobile-height;
   @include media-breakpoint-up(lg) {
-    margin-top: $main-nav-desktop-height;
+    margin-top: $top-bar-desktop-height + $main-nav-desktop-height;
   }
 }

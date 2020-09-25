@@ -21,6 +21,11 @@ export class Nav {
   }
 
   makeNav() {
+    // If sticky ISI is open, make header stay when scroll to prevent gap at top
+    if ($('#sticky-isi').hasClass('expanded-w-header')) {
+      return false;
+    }
+
     var scrollTop = $(window).scrollTop();
 
     if (scrollTop < this.lastScrollTop) {

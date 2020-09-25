@@ -37,6 +37,17 @@ if (typeof Object.assign != 'function') {
   };
 }
 
+// Global
+$.fn.isInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+};
+
 $(document).ready(function() {
 
   // Start from top after page reload for better parallax experience
@@ -58,8 +69,8 @@ $(document).ready(function() {
   let nav = new Nav();
   nav.listen();
 
-  //let isi = new ISI();
-  //isi.listen();
+  let isi = new ISI();
+  isi.listen();
 
   let entryModal = new EntryModal();
   entryModal.listen(() => {

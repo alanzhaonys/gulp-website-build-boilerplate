@@ -14,6 +14,10 @@ $color-gray: #cc8b8b;
 $color-black: #000;
 $color-white: #fff;
 
+// Top bar heights, if there is no top bar, set them to 0
+$top-bar-desktop-height: 30px;
+$top-bar-mobile-height: 40px;
+
 // Main nav
 $main-nav-desktop-height: 100px;
 $main-nav-mobile-height: 70px;
@@ -23,3 +27,9 @@ $header-zindex: 200;
 $mobile-nav-zindex: 300;
 $modal-zindex: 400;
 $cookie-zindex: 500;
+
+$isi-height: 20vh;
+$isi-min-height: 200px;
+$isi-header-height: 40px;
+$isi-shrink-height: $isi-header-height;
+$isi-zindex: 100;

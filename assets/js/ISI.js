@@ -15,24 +15,33 @@ export class ISI {
       thisRef.initState();
     });
 
-    $('.expand-isi').on('click', () => {
-      $('html, body').animate({ scrollTop: thisRef.isi.offset().top }, 1000);
-      thisRef.scrollPos = $(window).scrollTop();
-    });
+    $('.toggle-isi').on('click', () => {
+      // Close mobile nav if open
+      $('#mobile-nav').removeClass('show');
+      $('#main-nav .hamburger').removeClass('is-active');
 
-    $('.collapse-isi').on('click', () => {
-      $('html, body').animate({ scrollTop: thisRef.scrollPos }, 1000); 
+      // Scroll to top so we always see the header, with as less delay as possible
+      $('html, body').animate({ scrollTop: 0 }, 0);
+      setTimeout(() => {
+        thisRef.stickyIsi.toggleClass('expanded-w-header');
+      }, 30);
     });
   }
 
   initState() {
+
+    var scrollTop = $(window).scrollTop();
+
+    // Shrink after scrolling for 200px
+    if (scrollTop >= 200) {
+      this.stickyIsi.addClass('shrink');
+    }
+
     if (this.isInViewport()) {
-      //console.log("I am in viewport");
       if (this.stickyIsi.is(':visible')) {
         this.stickyIsi.hide();
       }
     } else {
-      //console.log("I am not in viewport");
       if (!this.stickyIsi.is(':visible')) {
         this.stickyIsi.show();
         this.stickyIsi.find('.isi-body').animate({ scrollTop: 0 }, 500); 
@@ -40,6 +49,7 @@ export class ISI {
     }
   }
 
+  // Check if inline version of ISI is in viewport and not covered by sticky ISI
   isInViewport() {
     var elementTop = this.isi.offset().top;
     var elementBottom = elementTop + this.isi.outerHeight();
