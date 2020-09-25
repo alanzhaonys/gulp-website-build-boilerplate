@@ -42,6 +42,12 @@ header {
     }
 
     .main-logo {
+      width: 150px;
+      height: auto;
+
+      @include media-breakpoint-up(lg) {
+        width: 200px;
+      }
     }
 
     // Hamburger bar color
