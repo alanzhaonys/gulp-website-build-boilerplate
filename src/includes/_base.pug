@@ -80,7 +80,8 @@ html(lang="en")
     block content
       div Content here
 
-    include _isi
+    if enableIsi && !disableIsiPageSlugs.includes(pageSlug)
+      include _isi
 
     include _footer
 

@@ -1,7 +1,13 @@
 extends ../includes/_base
 
+block params
+  - var pageTitle = "Contact" + pageTitleSuffix
+  - var pageDescription = "Contact us for anything"
+  - var pageSlug = "contact"
+  - var bodyClass = "contact"
+
 block content
-    main.flex-grow-1
+    main
       .container
         .row
           .col-4.text-left

@@ -1,7 +1,13 @@
 extends ../includes/_base
 
+block params
+  - var pageTitle = "This page doesn't exists" + pageTitleSuffix
+  - var pageDescription = "This page doesn't exists"
+  - var pageSlug = "page404"
+  - var bodyClass = "page404"
+
 block content
-    main.flex-grow-1
+    main
       .container
         .row.flex-column
           h1 404

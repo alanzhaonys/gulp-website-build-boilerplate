@@ -240,6 +240,8 @@ gulp.task("scripts", gulp.series(clear, jslint, scripts));
 
 gulp.task("styles", gulp.series(clear, styles));
 
+gulp.task("favicons", gulp.series(clear, favicons));
+
 gulp.task(
   "build",
   gulp.series(

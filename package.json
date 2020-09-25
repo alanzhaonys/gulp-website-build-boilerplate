@@ -43,6 +43,6 @@
     "lozad": "^1.16.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.43.0",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^6.1.0"
   }
 }
