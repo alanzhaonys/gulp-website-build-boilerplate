@@ -1,10 +1,11 @@
-#isi.container
-  .isi-container.row
-    .isi-header.col.col-12
-      | IMPORTANT SITE INFORMATION
+if enableInlineIsi
+  #isi.container
+    .isi-container.row
+      .isi-header.col.col-12
+        | IMPORTANT SITE INFORMATION
 
-    .isi-body.col.col-12
-      include _isi-body
+      .isi-body.col.col-12
+        include _isi-body
 
 #sticky-isi.container
   .isi-container.row

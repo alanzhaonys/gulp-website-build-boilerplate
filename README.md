@@ -8,6 +8,9 @@
 ## `src`
 ## `assets`
 
+# Change main logo
+`src/include/_header`, search for `main-logo` and update the `src` or `srcset` for the `img` tag
+
 # To create a new page
 
 # Homepage
@@ -40,6 +43,11 @@ Inline ISI appears before the footer
 
 `src/includes/_isi.pug`
 `src/includes/_isi-body.pug`
+
+## Additional configurations
+`assets/js/ISI.js`
+`shinkIsi`
+`persistShinkIsi`
 
 By default, ISI will show up on all pages except the standalone `/isi` and `/404` pages.
 To disable ISI for a particular page, add the page slug to `disableIsiPageSlugs` variable.

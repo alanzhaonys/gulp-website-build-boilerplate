@@ -3,8 +3,9 @@ header
     .container.h-100
       .row.h-100
         .col.col-12.h-100.d-flex.align-items-center.justify-content-end.flex-row
-          a.toggle-isi(href=(disableIsiPageSlugs.includes(pageSlug) ? '/isi' : '#') onclick=(disableIsiPageSlugs.includes(pageSlug) ? '' : 'return false'))
-            | Important Site Information
+          if enableIsi
+            a.toggle-isi(href=(disableIsiPageSlugs.includes(pageSlug) ? '/isi' : '#') onclick=(disableIsiPageSlugs.includes(pageSlug) ? '' : 'return false'))
+              | Important Site Information
           a(href='/')
             | Top Bar Link 2
 

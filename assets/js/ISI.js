@@ -1,14 +1,22 @@
 import * as $ from "jquery";
+import * as Cookie from "js-cookie";
 
 export class ISI {
   constructor() {
+    this.shrinkIsi = true;
+    this.persistIsiShink = true;
+    this.scrollToShrinkDistance = 200;
+
     this.isi = $("#isi");
     this.stickyIsi = $("#sticky-isi");
-    this.scrollPos = 0;
     this.initState();
   }
 
   listen() {
+    if (!this.stickyIsi.length) {
+      return false;
+    }
+
     let thisRef = this;
 
     $(window).on("resize scroll", () => {
@@ -29,23 +37,38 @@ export class ISI {
   }
 
   initState() {
+    if (!this.stickyIsi.length) {
+      return false;
+    }
 
     var scrollTop = $(window).scrollTop();
 
-    // Shrink after scrolling for 200px
-    if (scrollTop >= 200) {
-      this.stickyIsi.addClass('shrink');
+    // Shrink ISI
+    if (this.shrinkIsi) {
+      let shouldShrink = Cookie.get('isi-shown');
+      if (shouldShrink) {
+        this.stickyIsi.addClass('shrink');
+      } else if (scrollTop >= this.scrollToShrinkDistance) {
+        // Shrink after scrolling for 200px
+        this.stickyIsi.addClass('shrink');
+        Cookie.set('isi-shown', true);
+      }
     }
 
-    if (this.isInViewport()) {
-      if (this.stickyIsi.is(':visible')) {
-        this.stickyIsi.hide();
+    // Only if inline ISI is enabled
+    if (this.isi.length) {
+      if (this.isInViewport()) {
+        if (this.stickyIsi.is(':visible')) {
+          this.stickyIsi.hide();
+        }
+      } else {
+        if (!this.stickyIsi.is(':visible')) {
+          this.stickyIsi.show();
+          this.stickyIsi.find('.isi-body').animate({ scrollTop: 0 }, 500); 
+        }
       }
     } else {
-      if (!this.stickyIsi.is(':visible')) {
-        this.stickyIsi.show();
-        this.stickyIsi.find('.isi-body').animate({ scrollTop: 0 }, 500); 
-      }
+      this.stickyIsi.show();
     }
   }
 
