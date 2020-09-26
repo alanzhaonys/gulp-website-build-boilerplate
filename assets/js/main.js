@@ -8,6 +8,7 @@ import { HamburgerMenu } from "./HamburgerMenu";
 import { SmoothScrolling } from "./SmoothScrolling";
 import { EqualHeight } from "./EqualHeight";
 import { FadeInOnScroll } from "./FadeInOnScroll";
+import { FadeInOnScrollStaggered } from "./FadeInOnScrollStaggered";
 import { MobileZoomChart } from "./MobileZoomChart";
 import lozad from 'lozad';
 
@@ -90,6 +91,9 @@ $(document).ready(function() {
 
   let fadeInOnScroll = new FadeInOnScroll();
   fadeInOnScroll.listen();
+
+  let fadeInOnScrollStaggered = new FadeInOnScrollStaggered();
+  fadeInOnScrollStaggered.listen();
 
   let mobileZoomChart = new MobileZoomChart();
   mobileZoomChart.listen();

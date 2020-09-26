@@ -1,19 +1,21 @@
 import * as $ from "jquery";
 
-export class FadeInOnScroll {
+export class FadeInOnScrollStaggered {
   constructor() {
     this.initState();
   }
 
   listen() {
-    this.fadeIn();
+    let thisRef = this;
+
+    thisRef.fadeIn();
 
     $(window).scroll(() => {
-      this.fadeIn();
+      thisRef.fadeIn();
     });
 
     $(window).resize(() => {
-      this.fadeIn();
+      thisRef.fadeIn();
     });
   }
 
@@ -21,14 +23,14 @@ export class FadeInOnScroll {
     let thisRef = this;
     let delay = 300;
 
-    $(".fade-in-on-scroll-staggered").each(() => {
-      if (thisRef.isInViewport($(this))) {
-        $(this)
+    $(".fade-in-on-scroll-staggered").each((i, parent) => {
+      if (thisRef.isInViewport($(parent))) {
+        $(parent)
           .find(".staggered-child")
-          .each((i, child) => {
+          .each((j, child) => {
             setTimeout(() => {
               $(child).addClass("show");
-            }, delay * i);
+            }, delay * j);
           });
       }
     });
