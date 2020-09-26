@@ -9,6 +9,7 @@ import { SmoothScrolling } from "./SmoothScrolling";
 import { EqualHeight } from "./EqualHeight";
 import { FadeInOnScroll } from "./FadeInOnScroll";
 import { FadeInOnScrollStaggered } from "./FadeInOnScrollStaggered";
+import { ScrollingNumbers } from "./ScrollingNumbers";
 import { MobileZoomChart } from "./MobileZoomChart";
 import lozad from 'lozad';
 
@@ -53,6 +54,8 @@ $(document).ready(function() {
 
   // Start from top after page reload for better parallax experience
   // After document is ready
+ 
+  /*
   $("html, body").scrollTop(0);
   // After load event
   $(window).on("load", function () {
@@ -60,6 +63,7 @@ $(document).ready(function() {
       $("html, body").scrollTop(0);
     }, 0);
   });
+  */
 
   // Initialize lozad
   const observer = lozad();
@@ -94,6 +98,9 @@ $(document).ready(function() {
 
   let fadeInOnScrollStaggered = new FadeInOnScrollStaggered();
   fadeInOnScrollStaggered.listen();
+
+  let scrollingNumbers = new ScrollingNumbers();
+  scrollingNumbers.listen();
 
   let mobileZoomChart = new MobileZoomChart();
   mobileZoomChart.listen();
