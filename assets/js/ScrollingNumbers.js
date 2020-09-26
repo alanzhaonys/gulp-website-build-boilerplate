@@ -10,19 +10,23 @@ export class ScrollingNumbers {
 
     thisRef.scroll();
 
+    $(window).scroll(() => {
+      thisRef.scroll();
+    });
+
     $(window).resize(() => {
-      //thisRef.scroll();
+      thisRef.scroll();
     });
   }
 
   scroll() {
     let thisRef = this;
 
-    $(".scrolling-numbers").each((i, parent) => {
-
+    $(".scrolling-numbers:not(.scrolled)").each((i, parent) => {
       if (thisRef.isInViewport($(parent))) {
         let children = $(parent).find(".scrolling-number");
         let speed = $(parent).data('speed');
+        $(parent).addClass('scrolled');
 
         for (let j = 0; j < children.length; j++) {
           let child = children[j];
