@@ -11,6 +11,13 @@ export class Nav {
   listen() {
     this.makeNav();
 
+    $("#main-nav ul.menu").find("li a").each((i, el) => {
+      $(el).on("click", () => {
+        let submenu1 = $(el).parent().find(".submenu1");
+        submenu1.toggleClass("hover");
+      });
+    });
+
     $(window).on("scroll", () => {
       this.makeNav();
     });

@@ -18,10 +18,19 @@ header
 
         .col.col-8.col-lg-10.d-flex.align-items-center.justify-content-end.p-lg-0
           nav#desktop-nav.d-none.d-lg-flex.align-items-center
-            each page, key in menu_config
-              - var activeClass = (pageSlug === key) ? 'active ' : ''
-                a(href=page.href class=activeClass + 'd-block text-center')!= page.label
+            ul.menu
+              each page, key in menu_config
+                li
+                  - var activeClass = (pageSlug === key || parentSlug === key) ? 'active ' : ''
+                  a(href=(page.submenu ? '#' : page.href) onclick=(page.submenu ? 'return false' : '') class=activeClass)!= page.label
+                  if page.submenu
+                    ul.submenu1
+                      each page1, key1 in page.submenu
+                        li
+                          a(href=page1.href)!= page1.label
+
           button.hamburger.hamburger--spin-r.d-lg-none(type='button' aria-label='Menu' aria-controls='mobile-nav' aria-expanded='false')
+
             span.hamburger-box
               span.hamburger-inner
 
