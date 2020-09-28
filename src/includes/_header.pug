@@ -41,10 +41,20 @@ header
           ul.menu
             each page, key in menu_config
               li
-                - var activeClass = (pageSlug === key || parentSlug === key) ? 'active ' : ''
-                a(href=(page.submenu ? '#' : page.href) onclick=(page.submenu ? 'return false' : '') class=activeClass)!= page.label
+
+                - var showClass = ''
+                - var showableClass = ''
                 if page.submenu
-                  ul.submenu1
+                  - showableClass = 'showable'
+                  each page1, key1 in page.submenu
+                    if pageSlug === key1
+                      - showClass = 'show'
+
+                - var activeClass = (pageSlug === key || parentSlug === key) ? 'active' : ''
+
+                a(href=(page.submenu ? '#' : page.href) onclick=(page.submenu ? 'return false' : '') class=activeClass + ' ' + showableClass + ' ' + showClass)!= page.label
+                if page.submenu
+                  ul(class="submenu1 " + showClass)
                     each page1, key1 in page.submenu
                       li
                         - var activeClass1 = (pageSlug === key1) ? 'active ' : ''

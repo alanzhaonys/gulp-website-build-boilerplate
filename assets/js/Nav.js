@@ -11,11 +11,24 @@ export class Nav {
   listen() {
     this.makeNav();
 
-    // Hover state for submenu on mobile
+    // Hover state for submenu on touch device
     $("#main-nav ul.menu").find("li a").each((i, el) => {
       $(el).on("click", () => {
         let submenu1 = $(el).parent().find(".submenu1");
-        submenu1.toggleClass("hover");
+        if (submenu1.length) {
+          submenu1.toggleClass("hover");
+        }
+      });
+    });
+
+    // Click event for submenu on mobile
+    $("#mobile-nav ul.menu").find("li a").each((i, el) => {
+      $(el).on("click", () => {
+        let submenu1 = $(el).parent().find(".submenu1");
+        if (submenu1.length) {
+          submenu1.toggleClass("show");
+          $(el).toggleClass("show");
+        }
       });
     });
 
