@@ -19,17 +19,23 @@ header {
     background-color: $color-gray;
     color: $color-white;
     height: $top-bar-mobile-height;
+
     @include media-breakpoint-up(lg) {
       height: $top-bar-desktop-height;
     }
 
-    a:not(last-child) {
-      margin-left: 30px;
+    a:not(:last-child) {
+      margin-right: 30px;
     }
 
     a {
       color: $color-white;
+      line-height: 1.1;
       text-decoration: underline;
+      text-align: center;
+      @include media-breakpoint-up(lg) {
+        text-align: right;
+      }
     }
   }
 
@@ -294,7 +300,7 @@ header {
                 font-size: 16px;
                 text-decoration: none;
                 display: flex;
-                justify-content: start;
+                justify-content: flex-start;
                 align-items: center;
                 height: 50px;
                 padding-left: 30px;

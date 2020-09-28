@@ -2,7 +2,7 @@ header
   #top-bar
     .container.h-100
       .row.h-100
-        .col.col-12.h-100.d-flex.align-items-center.justify-content-end.flex-row
+        .col.col-12.h-100.d-flex.align-items-center.justify-content-center.justify-content-lg-end.flex-row
           if enableIsi
             a.toggle-isi(href=(disableIsiPageSlugs.includes(pageSlug) ? '/isi' : '#') onclick=(disableIsiPageSlugs.includes(pageSlug) ? '' : 'return false'))
               | Important Site Information
