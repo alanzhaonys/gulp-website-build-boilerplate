@@ -2,11 +2,12 @@ import * as $ from "jquery";
 import * as Cookie from "js-cookie";
 
 export class ISI {
-  constructor() {
+  constructor(hamburgerMenu) {
     this.shrinkIsi = true;
     this.persistIsiShink = true;
     this.scrollToShrinkDistance = 200;
 
+    this.hamburgerMenu = hamburgerMenu;
     this.isi = $("#isi");
     this.stickyIsi = $("#sticky-isi");
     this.initState();
@@ -25,8 +26,7 @@ export class ISI {
 
     $('.toggle-isi').on('click', () => {
       // Close mobile nav if open
-      $('#mobile-nav').removeClass('show');
-      $('#main-nav .hamburger').removeClass('is-active');
+      this.hamburgerMenu.deactivate();
 
       // Scroll to top so we always see the header, with as less delay as possible
       $('html, body').animate({ scrollTop: 0 }, 0);

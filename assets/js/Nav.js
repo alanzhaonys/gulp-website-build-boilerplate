@@ -11,6 +11,7 @@ export class Nav {
   listen() {
     this.makeNav();
 
+    // Hover state for submenu on mobile
     $("#main-nav ul.menu").find("li a").each((i, el) => {
       $(el).on("click", () => {
         let submenu1 = $(el).parent().find(".submenu1");

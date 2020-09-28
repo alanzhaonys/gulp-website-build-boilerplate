@@ -74,9 +74,6 @@ $(document).ready(function() {
   let nav = new Nav();
   nav.listen();
 
-  let isi = new ISI();
-  isi.listen();
-
   let entryModal = new EntryModal();
   entryModal.listen(() => {
     // Show cookie bar after bypassing the entry modal
@@ -86,6 +83,9 @@ $(document).ready(function() {
 
   let hamburgerMenu = new HamburgerMenu();
   hamburgerMenu.listen();
+
+  let isi = new ISI(hamburgerMenu);
+  isi.listen();
 
   let smoothScrolling = new SmoothScrolling();
   smoothScrolling.listen();

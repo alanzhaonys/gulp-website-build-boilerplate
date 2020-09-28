@@ -7,6 +7,12 @@ body {
   padding: 0;
 }
 
+body {
+  &.mobile-menu-open {
+    overflow: hidden;
+  }
+}
+
 main {
   margin-top: $top-bar-mobile-height + $main-nav-mobile-height;
   @include media-breakpoint-up(lg) {
