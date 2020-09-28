@@ -41,7 +41,7 @@ header {
     }
 
     .main-logo {
-      width: 150px;
+      width: 100px;
       height: auto;
 
       @include media-breakpoint-up(lg) {
@@ -137,6 +137,7 @@ header {
 
             &.active {
               color: $color-gray;
+
               &:after {
                 width: 60%;
               }
@@ -183,6 +184,7 @@ header {
 
               &:hover {
                 background: $color-gray;
+
                 a {
                   color: $color-white;
                 }
@@ -192,7 +194,6 @@ header {
 
           // Hover for mobile(using class)
           &.hover,
-          // Hover for desktop
           &:hover {
             .submenu1 {
               visibility: visible;
@@ -220,16 +221,66 @@ header {
         max-height: 1000px;
       }
 
-      a {
-        padding: 15px;
-        border: 1px solid #000;
-        border-bottom: 2px solid $color-white;
-        color: $color-white;
-        font-weight: 700;
-        @include font-size(20px);
+      ul.menu {
+        list-style: none;
+        padding: 30px 0;
+        margin: 0;
 
-        &.active {
-          color: $color-gray;
+        > li:not(:last-child) {
+          border-bottom: 2px solid $color-white;
+        }
+
+        > li {
+
+          > a {
+            color: $color-white;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 50px;
+
+            &.active {
+              color: $color-gray;
+            }
+          }
+
+          ul.submenu1 {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: block;
+
+            > li {
+              > a {
+                color: $color-white;
+                font-weight: 700;
+                font-size: 16px;
+                text-decoration: none;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                height: 50px;
+                padding-left: 30px;
+                position: relative;
+
+                &.active {
+                  color: $color-gray;
+                  &:before {
+                    content: '';
+                    width: 5px;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: $color-gray;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

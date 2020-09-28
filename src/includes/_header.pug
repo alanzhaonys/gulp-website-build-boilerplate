@@ -35,6 +35,17 @@ header
               span.hamburger-inner
 
   nav#mobile-nav.flex-column.d-lg-none
-    each page, key in menu_config
-      - var activeClass = (pageSlug === key) ? 'active ' : ''
-        a(href=page.href class=activeClass + 'd-block text-center')!= page.label
+    .container
+      .row
+        .col.col-12
+          ul.menu
+            each page, key in menu_config
+              li
+                - var activeClass = (pageSlug === key || parentSlug === key) ? 'active ' : ''
+                a(href=(page.submenu ? '#' : page.href) onclick=(page.submenu ? 'return false' : '') class=activeClass)!= page.label
+                if page.submenu
+                  ul.submenu1
+                    each page1, key1 in page.submenu
+                      li
+                        - var activeClass1 = (pageSlug === key1) ? 'active ' : ''
+                        a(href=page1.href class=activeClass1)!= page1.label
