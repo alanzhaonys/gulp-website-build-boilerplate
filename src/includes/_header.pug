@@ -8,6 +8,8 @@ header
               | Important Site Information
           a(href='/')
             | Top Bar Link 2
+          if enableSiteSearch
+            button.d-none.d-lg-block.search-button Search
 
   #main-nav.d-flex.align-items-center
     .container
@@ -17,6 +19,9 @@ header
             img.main-logo(srcset='http://via.placeholder.com/140x80, http://via.placeholder.com/280x160 2x' alt='Main Logo')
 
         .col.col-8.col-lg-10.d-flex.align-items-center.justify-content-end.p-lg-0
+          //-
+          //- Desktop nav start here
+          //-
           nav#desktop-nav.d-none.d-lg-flex.align-items-center
             ul.menu
               each page, key in menu_config
@@ -35,10 +40,28 @@ header
             span.hamburger-box
               span.hamburger-inner
 
+  if enableSiteSearch
+    .site-search.d-none.d-lg-block
+      .container
+        .row
+          .col.col-12
+            form.site-search-form(method="get" action="/search")
+              input.keywords(type="text" name="keywords")
+              input.submit(type="submit" value="Search")
+              a.cancel(href="#" onclick="return false") Cancel
+
+  //-
+  //- Mobile nav starts here
+  //-
   nav#mobile-nav.flex-column.d-lg-none
     .container
       .row
         .col.col-12
+          .site-search
+            form.site-search-form.d-flex(method="get" action="/search")
+              input.keywords.flex-fill(type="text" name="keywords")
+              input.submit(type="submit" value="Search")
+
           ul.menu
             each page, key in menu_config
               li

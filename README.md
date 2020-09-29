@@ -49,7 +49,7 @@ Inline ISI appears before the footer
 `shinkIsi`
 `persistShinkIsi`
 
-By default, ISI will show up on all pages except the standalone `/isi` and `/404` pages.
+By default, ISI will show up on all pages except the standalone `/isi`, `/404` and `/search` pages.
 To disable ISI for a particular page, add the page slug to `disableIsiPageSlugs` variable.
 
 # Favicon

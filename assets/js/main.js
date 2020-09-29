@@ -5,6 +5,7 @@ import { ISI } from "./ISI";
 import { EntryModal } from "./EntryModal";
 import { CookieBar } from "./CookieBar";
 import { HamburgerMenu } from "./HamburgerMenu";
+import { SiteSearch } from "./SiteSearch";
 import { SmoothScrolling } from "./SmoothScrolling";
 import { EqualHeight } from "./EqualHeight";
 import { FadeInOnScroll } from "./FadeInOnScroll";
@@ -83,6 +84,9 @@ $(document).ready(function() {
 
   let hamburgerMenu = new HamburgerMenu();
   hamburgerMenu.listen();
+
+  let siteSearch = new SiteSearch();
+  siteSearch.listen();
 
   let isi = new ISI(hamburgerMenu);
   isi.listen();
