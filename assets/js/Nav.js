@@ -25,9 +25,9 @@ export class Nav {
     $("#mobile-nav ul.menu").find("li a").each((i, el) => {
       $(el).on("click", () => {
         let submenu1 = $(el).parent().find(".submenu1");
+        // If it has submenu
         if (submenu1.length) {
-          submenu1.toggleClass("show");
-          $(el).toggleClass("show");
+          $(el).toggleClass("expanded");
         }
       });
     });

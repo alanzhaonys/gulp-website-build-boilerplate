@@ -235,7 +235,7 @@ header {
         overflow-y: auto;
 
         > li:not(:last-child) {
-          border-bottom: 2px solid $color-white;
+          border-bottom: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         > li {
@@ -254,7 +254,7 @@ header {
               color: $color-gray;
             }
 
-            &.showable {
+            &.expandable {
               &:after {
                 content: '';
                 position: absolute;
@@ -267,15 +267,20 @@ header {
                 background-size: 100% auto;
                 background-position: center center;
                 background-repeat: no-repeat;
-                transition: transform 0.5s ease-in-out;
+                transition: transform 0.4s ease-in-out;
               }
             }
 
-            &.show {
+            &.expanded {
               &:after {
                 transform: rotate(180deg);
               }
             }
+          }
+
+          // Make submenu expand
+          > a.expanded + ul.submenu1 {
+            max-height: 1000px;
           }
 
           ul.submenu1 {
@@ -288,10 +293,6 @@ header {
             overflow: hidden;
             max-height: 0;
             transition: max-height 0.5s ease-in-out;
-
-            &.show {
-              max-height: 1000px;
-            }
 
             > li {
               > a {

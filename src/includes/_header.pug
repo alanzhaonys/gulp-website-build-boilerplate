@@ -42,19 +42,21 @@ header
             each page, key in menu_config
               li
 
-                - var showClass = ''
-                - var showableClass = ''
+                - var expandedClass = ''
+                - var expandableClass = ''
                 if page.submenu
-                  - showableClass = 'showable'
+                  // has submenu
+                  - expandableClass = 'expandable'
                   each page1, key1 in page.submenu
                     if pageSlug === key1
-                      - showClass = 'show'
+                      // should be initially expanded
+                      - expandedClass = 'expanded'
 
                 - var activeClass = (pageSlug === key || parentSlug === key) ? 'active' : ''
 
-                a(href=(page.submenu ? '#' : page.href) onclick=(page.submenu ? 'return false' : '') class=activeClass + ' ' + showableClass + ' ' + showClass)!= page.label
+                a(href=(page.submenu ? '#' : page.href) onclick=(page.submenu ? 'return false' : '') class=activeClass + ' ' + expandableClass + ' ' + expandedClass)!= page.label
                 if page.submenu
-                  ul(class="submenu1 " + showClass)
+                  ul.submenu1
                     each page1, key1 in page.submenu
                       li
                         - var activeClass1 = (pageSlug === key1) ? 'active ' : ''
