@@ -51,7 +51,7 @@ header {
       height: auto;
 
       @include media-breakpoint-up(lg) {
-        width: 200px;
+        width: 150px;
       }
     }
 
@@ -186,13 +186,24 @@ header {
                 @include media-breakpoint-up(xl) {
                   font-size: 18px;
                 }
+
+                &.active {
+                  color: $color-gray;
+                  &:before {
+                    content: '';
+                    width: 5px;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: $color-gray;
+                  }
+                }
               }
 
               &:hover {
-                background: $color-gray;
-
                 a {
-                  color: $color-white;
+                  color: $color-gray;
                 }
               }
             }
@@ -233,6 +244,7 @@ header {
         margin: 0;
         max-height: calc(100vh - #{$top-bar-mobile-height} - #{$main-nav-mobile-height});
         overflow-y: auto;
+        overflow-x: hidden;
 
         > li:not(:last-child) {
           border-bottom: 2px solid rgba(255, 255, 255, 0.3);

@@ -27,7 +27,8 @@ header
                     ul.submenu1
                       each page1, key1 in page.submenu
                         li
-                          a(href=page1.href)!= page1.label
+                          - var activeClass1 = (pageSlug === key1) ? 'active ' : ''
+                          a(href=page1.href class=activeClass1)!= page1.label
 
           button.hamburger.hamburger--spin-r.d-lg-none(type='button' aria-label='Menu' aria-controls='mobile-nav' aria-expanded='false')
 
@@ -45,11 +46,11 @@ header
                 - var expandedClass = ''
                 - var expandableClass = ''
                 if page.submenu
-                  // has submenu
+                  //- has submenu
                   - expandableClass = 'expandable'
                   each page1, key1 in page.submenu
                     if pageSlug === key1
-                      // should be initially expanded
+                      //- should be initially expanded
                       - expandedClass = 'expanded'
 
                 - var activeClass = (pageSlug === key || parentSlug === key) ? 'active' : ''
