@@ -12,6 +12,9 @@ block content
         .row
           .col-12
             h1 Site Search
-            form.site-search-form(method="post" action="/search")
-              input.keywords(type="text" name="keywords")
-              input.submit(type="submit" name="search" value="Search")
+            form.site-search-form(method="get" action="/search")
+              input.keywords(type="search" name="keywords")
+              input(type="submit" value="Search")
+
+            ol#search-results
+            h3#search-not-found No results found

@@ -41,13 +41,13 @@ header
               span.hamburger-inner
 
   if enableSiteSearch
-    .site-search.d-none.d-lg-block
-      .container
-        .row
-          .col.col-12
-            form.site-search-form(method="get" action="/search")
-              input.keywords(type="text" name="keywords")
-              input.submit(type="submit" value="Search")
+    .container.d-none.d-lg-block
+      .row
+        .col.col-12
+          form.site-search-form(method="get" action="/search")
+            .p-4
+              input.keywords(type="search" name="keywords")
+              input(type="submit" value="Search")
               a.cancel(href="#" onclick="return false") Cancel
 
   //-
@@ -57,10 +57,9 @@ header
     .container
       .row
         .col.col-12
-          .site-search
-            form.site-search-form.d-flex(method="get" action="/search")
-              input.keywords.flex-fill(type="text" name="keywords")
-              input.submit(type="submit" value="Search")
+          form.site-search-form.d-flex(method="get" action="/search")
+            input.keywords.flex-fill(type="search" name="keywords")
+            input(type="submit" value="Search")
 
           ul.menu
             each page, key in menu_config
