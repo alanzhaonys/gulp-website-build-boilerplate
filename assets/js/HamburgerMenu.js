@@ -29,6 +29,8 @@ export class HamburgerMenu {
     this.hamburgerIcon.addClass("is-active");
     this.hamburgerIcon.attr("aria-expanded", "true");
     this.mobileNav.addClass("show");
+    // Scroll menu to top
+    this.mobileNav.find('ul.menu').animate({ scrollTop: 0 }, 500);
     // Disable body scrolling
     $('body').addClass('mobile-menu-open');
   }
