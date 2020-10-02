@@ -20,6 +20,7 @@ var domain = "";
 var pageSource = "src";
 var styleSource = "assets/styles";
 var scriptSource = "assets/js";
+var seoSource = "assets/seo";
 var imageSource = "assets/images";
 var fontSource = "assets/fonts";
 var downloadSource = "assets/downloads";
@@ -28,6 +29,7 @@ var faviconSource = "assets/favicons";
 var pageDist = "dist";
 var styleDist = "dist/styles";
 var scriptDist = "dist/js";
+var seoDist = "dist";
 var imageDist = "dist/images";
 var fontDist = "dist/fonts";
 var downloadDist = "dist/downloads";
@@ -148,6 +150,14 @@ function clean() {
 //
 function fonts() {
   return gulp.src(fontSource + "/**/*").pipe(gulp.dest("dist/fonts"));
+}
+
+//
+// Copy SEO folder
+//
+function seo() {
+  return gulp.src(seoSource + "/**/*")
+    .pipe(gulp.dest(seoDist));
 }
 
 //

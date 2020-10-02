@@ -47,14 +47,6 @@
     }
   }
 
-  .toggle-isi {
-    img {
-      width: 20px;
-      height: auto;
-    }
-  }
-
-
   &.expanded-w-header,
   &.expanded {
     .toggle-isi {
@@ -99,6 +91,13 @@
       }
     }
   }
+
+  .toggle-isi {
+    img {
+      width: 20px;
+      height: auto;
+    }
+  }
 }
 
 .isi-container {
@@ -127,5 +126,6 @@
   }
 
   .isi-body {
+    padding-bottom: 40px;
   }
 }
