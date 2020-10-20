@@ -1,0 +1,65 @@
+extends ../../includes/_base
+
+block params
+  - var pageTitle = "Content >> Lists" + pageTitleSuffix
+  - var pageDescription = "Lists"
+  - var pageSlug = "lists"
+  - var bodyClass = "lists"
+
+block content
+    main
+      .container
+        .row
+          .col.col-md-4
+            h2 UL #[span.primary Unordered List]
+            ul
+              li Lorem ipsum dolor sit amet
+              li Consectetur adipiscing elit
+              li Integer molestie lorem at massa
+              li Facilisis in pretium nisl aliquet
+              li
+                | Nulla volutpat aliquam velit
+                ul
+                  li Phasellus iaculis neque
+                  li Purus sodales ultricies
+                  li Vestibulum laoreet porttitor sem
+                  li Ac tristique libero volutpat at
+              li Faucibus porta lacus fringilla vel
+              li Aenean sit amet erat nunc
+              li Eget porttitor lorem
+
+          .col.col-md-4
+            h2 OL #[span.primary Ordered Lists]
+            ol
+              li Lorem ipsum dolor sit amet
+              li Consectetur adipiscing elit
+              li Integer molestie lorem at massa
+              li Facilisis in pretium nisl aliquet
+              li
+                | Nulla volutpat aliquam velit
+                ul
+                  li Phasellus iaculis neque
+                  li Purus sodales ultricies
+                  li Vestibulum laoreet porttitor sem
+                  li Ac tristique libero volutpat at
+              li Faucibus porta lacus fringilla vel
+              li Aenean sit amet erat nunc
+              li Eget porttitor lorem
+
+          .col.col-md-4
+            h2 DL #[span.primary Definition Listss]
+            dl
+              li Lorem ipsum dolor sit amet
+              li Consectetur adipiscing elit
+              li Integer molestie lorem at massa
+              li Facilisis in pretium nisl aliquet
+              li
+                | Nulla volutpat aliquam velit
+                ul
+                  li Phasellus iaculis neque
+                  li Purus sodales ultricies
+                  li Vestibulum laoreet porttitor sem
+                  li Ac tristique libero volutpat at
+              li Faucibus porta lacus fringilla vel
+              li Aenean sit amet erat nunc
+              li Eget porttitor lorem

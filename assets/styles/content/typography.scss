@@ -1,21 +1,3 @@
-h1,
-h2,
-h3 {
-  font-family: 'Racing Sans One', cursive;
-}
-
-h1 {
-  @include font-size(48px);
-  font-weight: 600;
-  color: $color-red;
-}
-
-h2 {
-  @include font-size(30px);
-  font-weight: 600;
-  color: $color-gray;
-}
-
 sup {
   font-size: 50%;
   top: -1em;

@@ -10,30 +10,33 @@
 // Hamburger menu
 @import "node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 
-// Variables
-@import "_variables";
-
 // Fonts here
 
 
 // Global
+@import "_variables";
 @import "_global";
-@import "_type";
+
+// Content
+@import "content/typography";
+@import "content/lists";
+@import "content/_form";
+@import "content/_button";
 
 // Components
-@import "_entry-modal";
-@import "_cookie";
-@import "_isi";
-@import "_mobile-zoom-chart";
-@import "_scrolling-numbers";
-@import "_fade-in-on-scroll";
-@import "_fade-in-on-scroll-staggered";
-@import "_header";
-@import "_footer";
-@import "_button";
-@import "_form";
+@import "components/_header";
+@import "components/_footer";
+@import "components/_entry-modal";
+@import "components/_cookie";
+@import "components/_isi";
+@import "components/_mobile-zoom-chart";
+
+// Animations
+@import "animations/_scrolling-numbers";
+@import "animations/_fade-in-on-scroll";
+@import "animations/_fade-in-on-scroll-staggered";
 
 // Pages
-@import "_index";
-@import "_404";
-@import "_site-search";
+@import "pages/_index";
+@import "pages/_404";
+@import "pages/_search";
