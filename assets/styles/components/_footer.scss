@@ -1,15 +1,15 @@
 footer {
   height: 100px;
-  background-color: $color-red;
-  color: $color-white;
+  background-color: $dark;
+  color: $white;
   padding: 0;
   margin: 0;
 
   a {
-    color: $color-white;
+    color: $white;
     margin: 10px;
     &:hover {
-      color: $color-white;
+      color: $white;
     }
   }
 

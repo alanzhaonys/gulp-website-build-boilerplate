@@ -8,7 +8,7 @@
   position: fixed;
   bottom: 0;
   left: 50%;
-  background-color: $color-white;
+  background-color: $white;
   transform: translateX(-50%);
   z-index: $isi-zindex;
   box-shadow: 0 0 12px 1px rgba(0,0,0,.5);
@@ -106,7 +106,7 @@
   .isi-header {
     position: relative;
     height: $isi-header-height;
-    background-color: blue;
+    background-color: $primary;
     color: white;
     display: flex;
     justify-content: left;

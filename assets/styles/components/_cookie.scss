@@ -1,5 +1,5 @@
 #cookie {
-  background-color: $color-yellow;
+  background-color: $yellow;
   position: fixed;
   top: 0;
   left: 0;
@@ -7,7 +7,7 @@
   margin-left: auto;
   margin-right: auto;
   display: none;
-  color: $color-white;
+  color: $white;
   padding: 20px 0;
   z-index: $cookie-zindex;
 
@@ -21,7 +21,7 @@
     }
 
     a {
-      color: $color-white;
+      color: $white;
       text-decoration: underline;
     }
   }

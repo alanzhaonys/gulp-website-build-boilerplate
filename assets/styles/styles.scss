@@ -1,5 +1,8 @@
-// Bootswatch variable
-@import "node_modules/bootswatch/dist/cosmo/variables";
+// Your variables
+@import "variables";
+
+// Bootswatch variables
+@import "bootswatch-variables";
 
 // Just some bootstrap components
 //@import "node_modules/bootstrap/scss/bootstrap-grid";
@@ -20,7 +23,6 @@
 // Fonts here
 
 // Global
-@import "variables";
 @import "global";
 
 // Content

@@ -11,7 +11,7 @@ input[type="checkbox"] {
     position: absolute;
     width: 20px;
     height: 20px;
-    border: 1px solid $color-blue;
+    border: 1px solid $blue;
     top: 0;
     left: 0;
     border-radius: 3px;
@@ -26,7 +26,7 @@ input[type="checkbox"] {
   &:checked {
     &:before {
       content: "✓";
-      color: $color-blue;
+      color: $blue;
     }
   }
 
@@ -50,7 +50,7 @@ input[type="radio"] {
   &.checked {
     &:after {
       content: "X";
-      color: $color-red;
+      color: $red;
       display: block;
       position: absolute;
       left: 8px;
@@ -66,8 +66,8 @@ input[type="radio"] {
     position: absolute;
     left: 0;
     top: 0;
-    border: 1px solid $color-red;
-    background-color: $color-yellow;
+    border: 1px solid $red;
+    background-color: $yellow;
     border-radius: 50%;
     width: 30px;
     height: 30px;
