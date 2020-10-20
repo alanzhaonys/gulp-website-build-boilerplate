@@ -1,0 +1,158 @@
+extends ../../includes/_base
+
+block params
+  - var pageTitle = "Content >> Forms" + pageTitleSuffix
+  - var pageDescription = "Forms"
+  - var pageSlug = "forms"
+  - var bodyClass = "forms"
+
+block content
+    main
+      .container
+        .row
+          .col-lg-6
+            .bs-component
+              form
+                fieldset
+                  legend Legend
+                  .form-group.row
+                    label.col-sm-2.col-form-label(for='staticEmail') Email
+                    .col-sm-10
+                      input#staticEmail.form-control-plaintext(type='text' readonly='' value='email@example.com')
+                  .form-group
+                    label(for='exampleInputEmail1') Email address
+                    input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email')
+                    small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
+                  .form-group
+                    label(for='exampleInputPassword1') Password
+                    input#exampleInputPassword1.form-control(type='password' placeholder='Password')
+                  .form-group
+                    label(for='exampleSelect1') Example select
+                    select#exampleSelect1.form-control
+                      option 1
+                      option 2
+                      option 3
+                      option 4
+                      option 5
+                  .form-group
+                    label(for='exampleSelect2') Example multiple select
+                    select#exampleSelect2.form-control(multiple='')
+                      option 1
+                      option 2
+                      option 3
+                      option 4
+                      option 5
+                  .form-group
+                    label(for='exampleTextarea') Example textarea
+                    textarea#exampleTextarea.form-control(rows='3')
+                  .form-group
+                    label(for='exampleInputFile') File input
+                    input#exampleInputFile.form-control-file(type='file' aria-describedby='fileHelp')
+                    small#fileHelp.form-text.text-muted
+                      | This is some placeholder block-level help text for the above input. It&apos;s a bit lighter and easily wraps to a new line.
+                  fieldset.form-group
+                    legend Radio buttons
+                    .form-check
+                      label.form-check-label
+                        input#optionsRadios1.form-check-input(type='radio' name='optionsRadios' value='option1' checked='')
+                        |                         Option one is this and that&mdash;be sure to include why it&apos;s great
+                    .form-check
+                      label.form-check-label
+                        input#optionsRadios2.form-check-input(type='radio' name='optionsRadios' value='option2')
+                        |                         Option two can be something else and selecting it will deselect option one
+                    .form-check.disabled
+                      label.form-check-label
+                        input#optionsRadios3.form-check-input(type='radio' name='optionsRadios' value='option3' disabled='')
+                        |                         Option three is disabled
+                  fieldset.form-group
+                    legend Checkboxes
+                    .form-check
+                      label.form-check-label
+                        input.form-check-input(type='checkbox' value='' checked='')
+                        |                         Option one is this and that&mdash;be sure to include why it&apos;s great
+                    .form-check.disabled
+                      label.form-check-label
+                        input.form-check-input(type='checkbox' value='' disabled='')
+                        |                         Option two is disabled
+                  fieldset.form-group
+                    legend Sliders
+                    label(for='customRange1') Example range
+                    input#customRange1.custom-range(type='range')
+                  button.btn.btn-primary(type='submit') Submit
+          .col-lg-4.offset-lg-1
+            form.bs-component
+              .form-group
+                fieldset(disabled='')
+                  label.control-label(for='disabledInput') Disabled input
+                  input#disabledInput.form-control(type='text' placeholder='Disabled input here...' disabled='')
+              .form-group
+                fieldset
+                  label.control-label(for='readOnlyInput') Readonly input
+                  input#readOnlyInput.form-control(type='text' placeholder='Readonly input here…' readonly='')
+              .form-group.has-success
+                label.form-control-label(for='inputSuccess1') Valid input
+                input#inputValid.form-control.is-valid(type='text' value='correct value')
+                .valid-feedback Success! You&apos;ve done it.
+              .form-group.has-danger
+                label.form-control-label(for='inputDanger1') Invalid input
+                input#inputInvalid.form-control.is-invalid(type='text' value='wrong value')
+                .invalid-feedback Sorry, that username&apos;s taken. Try another?
+              .form-group
+                label.col-form-label.col-form-label-lg(for='inputLarge') Large input
+                input#inputLarge.form-control.form-control-lg(type='text' placeholder='.form-control-lg')
+              .form-group
+                label.col-form-label(for='inputDefault') Default input
+                input#inputDefault.form-control(type='text' placeholder='Default input')
+              .form-group
+                label.col-form-label.col-form-label-sm(for='inputSmall') Small input
+                input#inputSmall.form-control.form-control-sm(type='text' placeholder='.form-control-sm')
+              .form-group
+                label.control-label Input addons
+                .form-group
+                  .input-group.mb-3
+                    .input-group-prepend
+                      span.input-group-text $
+                    input.form-control(type='text' aria-label='Amount (to the nearest dollar)')
+                    .input-group-append
+                      span.input-group-text .00
+            .bs-component
+              fieldset
+                legend Custom forms
+                .form-group
+                  .custom-control.custom-radio
+                    input#customRadio1.custom-control-input(type='radio' name='customRadio' checked='')
+                    label.custom-control-label(for='customRadio1') Toggle this custom radio
+                  .custom-control.custom-radio
+                    input#customRadio2.custom-control-input(type='radio' name='customRadio')
+                    label.custom-control-label(for='customRadio2') Or toggle this other custom radio
+                  .custom-control.custom-radio
+                    input#customRadio3.custom-control-input(type='radio' name='customRadio' disabled='')
+                    label.custom-control-label(for='customRadio3') Disabled custom radio
+                .form-group
+                  .custom-control.custom-checkbox
+                    input#customCheck1.custom-control-input(type='checkbox' checked='')
+                    label.custom-control-label(for='customCheck1') Check this custom checkbox
+                  .custom-control.custom-checkbox
+                    input#customCheck2.custom-control-input(type='checkbox' disabled='')
+                    label.custom-control-label(for='customCheck2') Disabled custom checkbox
+                .form-group
+                  .custom-control.custom-switch
+                    input#customSwitch1.custom-control-input(type='checkbox' checked='')
+                    label.custom-control-label(for='customSwitch1') Toggle this switch element
+                  .custom-control.custom-switch
+                    input#customSwitch2.custom-control-input(type='checkbox' disabled='')
+                    label.custom-control-label(for='customSwitch2') Disabled switch element
+                .form-group
+                  select.custom-select
+                    option(selected='') Open this select menu
+                    option(value='1') One
+                    option(value='2') Two
+                    option(value='3') Three
+                .form-group
+                  .input-group.mb-3
+                    .custom-file
+                      input#inputGroupFile02.custom-file-input(type='file')
+                      label.custom-file-label(for='inputGroupFile02') Choose file
+                    .input-group-append
+                      span.input-group-text(id='') Upload
+
