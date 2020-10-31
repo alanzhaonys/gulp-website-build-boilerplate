@@ -28,12 +28,22 @@ header
                 li
                   - var activeClass = (pageSlug === key || parentSlug === key) ? 'active ' : ''
                   a(href=(page.submenu ? '#' : page.href) onclick=(page.submenu ? 'return false' : '') class=activeClass)!= page.label
+
+                  //- Level 1 submenu
                   if page.submenu
-                    ul.submenu1
+                    ul.submenu.submenu1
                       each page1, key1 in page.submenu
                         li
                           - var activeClass1 = (pageSlug === key1) ? 'active ' : ''
-                          a(href=page1.href class=activeClass1)!= page1.label
+                          a(href=(page1.submenu ? '#' : page1.href) onclick=(page1.submenu ? 'return false' : '') class=activeClass1)!= page1.label
+
+                          //- Level 2 submenu
+                          if page1.submenu
+                            ul.submenu.submenu2
+                              each page2, key2 in page1.submenu
+                                li
+                                  - var activeClass2 = (pageSlug === key2) ? 'active ' : ''
+                                  a(href=page2.href class=activeClass2)!= page2.label
 
           button.hamburger.hamburger--spin-r.d-lg-none(type='button' aria-label='Menu' aria-controls='mobile-nav' aria-expanded='false')
 
@@ -65,22 +75,43 @@ header
             each page, key in menu_config
               li
 
+                //- Determine if level 1 submenu should be expanded
                 - var expandedClass = ''
                 - var expandableClass = ''
                 if page.submenu
-                  //- has submenu
                   - expandableClass = 'expandable'
                   each page1, key1 in page.submenu
-                    if pageSlug === key1
+                    if (pageSlug === key1 || parentSlug === key1)
                       //- should be initially expanded
                       - expandedClass = 'expanded'
 
                 - var activeClass = (pageSlug === key || parentSlug === key) ? 'active' : ''
-
                 a(href=(page.submenu ? '#' : page.href) onclick=(page.submenu ? 'return false' : '') class=activeClass + ' ' + expandableClass + ' ' + expandedClass)!= page.label
+
+                //- Level 1 submenu
                 if page.submenu
-                  ul.submenu1
+                  ul.submenu.submenu1
                     each page1, key1 in page.submenu
                       li
+
+                        //- Determine if level 2 submenu should be expanded
+                        - var expandedClass1 = ''
+                        - var expandableClass1 = ''
+                        if page1.submenu
+                          - expandableClass1 = 'expandable'
+                          each page2, key2 in page1.submenu
+                            if pageSlug === key2
+                              //- should be initially expanded
+                              - expandedClass1 = 'expanded'
+
                         - var activeClass1 = (pageSlug === key1) ? 'active ' : ''
-                        a(href=page1.href class=activeClass1)!= page1.label
+                        a(href=(page1.submenu ? '#' : page1.href) onclick=(page1.submenu ? 'return false' : '') class=activeClass1 + ' ' + expandableClass1 + ' ' + expandedClass1)!= page1.label
+
+                        //- Level 2 submenu
+                        if page1.submenu
+                          ul.submenu.submenu2
+                            each page2, key2 in page1.submenu
+                              li
+                                - var activeClass2 = (pageSlug === key2) ? 'active ' : ''
+                                a(href=page2.href class=activeClass2)!= page2.label
+

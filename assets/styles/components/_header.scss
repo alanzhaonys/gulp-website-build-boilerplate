@@ -41,9 +41,9 @@ header {
     .search-button {
       border: 0;
       border-radius: 15px;
-      background-color: $red;
+      background-color: $green;
       color: $white;
-      border: 2px solid $white;
+      border: 1px solid $white;
       font-size: 12px;
       padding: 2px 20px;
       outline: none;
@@ -117,6 +117,17 @@ header {
         margin: 0;
         display: flex;
 
+        li {
+          // Hover to show for mobile(using class)
+          &.hover,
+          &:hover {
+            > .submenu {
+              visibility: visible;
+              opacity: 1;
+            }
+          }
+        }
+
         > li {
           padding: 0;
           margin: 0;
@@ -168,7 +179,7 @@ header {
             }
           }
 
-          ul.submenu1 {
+          ul.submenu {
             position: absolute;
             list-style: none;
             padding: 0;
@@ -189,6 +200,7 @@ header {
               background-color: $white;
               margin: 0;
               padding: 0;
+              position: relative;
               transition: background 0.3s linear;
 
               > a {
@@ -223,19 +235,17 @@ header {
 
               &:hover {
                 a {
-                  color: $gray-600
+                  color: $gray-600;
                 }
               }
             }
           }
 
-          // Hover for mobile(using class)
-          &.hover,
-          &:hover {
-            .submenu1 {
-              visibility: visible;
-              opacity: 1;
-            }
+          // Submenu2 override
+          ul.submenu2 {
+            left: 100%;
+            top: 0;
+            box-shadow: 0 0 12px 1px rgba(0, 0, 0, .5);
           }
         }
       }
@@ -273,28 +283,8 @@ header {
         overflow-y: auto;
         overflow-x: hidden;
 
-        > li:last-child {
-          border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        > li {
-          border-top: 2px solid rgba(255, 255, 255, 0.3);
-
+        li {
           > a {
-            color: $white;
-            font-weight: 700;
-            font-size: 16px;
-            text-decoration: none;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            height: 50px;
-            position: relative;
-
-            &.active {
-              color: $gray-100;
-            }
-
             &.expandable {
               &:after {
                 content: '';
@@ -317,14 +307,39 @@ header {
                 transform: rotate(180deg);
               }
             }
+
+            // Make submenu expand
+            &.expanded + ul.submenu,
+            &.expended + ul.submenu {
+              max-height: 1000px;
+            }
+          }
+        }
+
+        > li:last-child {
+          border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        > li {
+          border-top: 2px solid rgba(255, 255, 255, 0.3);
+
+          > a {
+            color: $white;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 50px;
+            position: relative;
+
+            &.active {
+              color: $gray-100;
+            }
           }
 
-          // Make submenu expand
-          > a.expanded + ul.submenu1 {
-            max-height: 1000px;
-          }
-
-          ul.submenu1 {
+          ul.submenu {
             list-style: none;
             margin: 0;
             padding: 0;
