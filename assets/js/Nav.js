@@ -14,9 +14,9 @@ export class Nav {
     // Hover state for submenu on touch device
     $("#main-nav ul.menu").find("li a").each((i, el) => {
       $(el).on("click", () => {
-        let submenu1 = $(el).parent().find(".submenu1");
-        if (submenu1.length) {
-          submenu1.toggleClass("hover");
+        let submenu = $(el).parent().find(".submenu");
+        if (submenu.length) {
+          submenu.toggleClass("hover");
         }
       });
     });
@@ -24,9 +24,9 @@ export class Nav {
     // Click event for submenu on mobile
     $("#mobile-nav ul.menu").find("li a").each((i, el) => {
       $(el).on("click", () => {
-        let submenu1 = $(el).parent().find(".submenu1");
+        let submenu = $(el).parent().find(".submenu");
         // If it has submenu
-        if (submenu1.length) {
+        if (submenu.length) {
           $(el).toggleClass("expanded");
         }
       });

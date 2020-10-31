@@ -379,6 +379,20 @@ header {
               }
             }
           }
+
+          // Submenu 2 override
+          ul.submenu2 {
+            > li {
+              > a {
+                padding-left: 60px;
+                &.active {
+                  &:before {
+                    left: 30px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

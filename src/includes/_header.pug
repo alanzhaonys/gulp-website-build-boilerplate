@@ -34,7 +34,7 @@ header
                     ul.submenu.submenu1
                       each page1, key1 in page.submenu
                         li
-                          - var activeClass1 = (pageSlug === key1) ? 'active ' : ''
+                          - var activeClass1 = (pageSlug === key1 || parentSlug === key1) ? 'active ' : ''
                           a(href=(page1.submenu ? '#' : page1.href) onclick=(page1.submenu ? 'return false' : '') class=activeClass1)!= page1.label
 
                           //- Level 2 submenu
@@ -100,11 +100,11 @@ header
                         if page1.submenu
                           - expandableClass1 = 'expandable'
                           each page2, key2 in page1.submenu
-                            if pageSlug === key2
+                            if (pageSlug === key2 || parentSlug === key2)
                               //- should be initially expanded
                               - expandedClass1 = 'expanded'
 
-                        - var activeClass1 = (pageSlug === key1) ? 'active ' : ''
+                        - var activeClass1 = (pageSlug === key1 || parentSlug === key1) ? 'active ' : ''
                         a(href=(page1.submenu ? '#' : page1.href) onclick=(page1.submenu ? 'return false' : '') class=activeClass1 + ' ' + expandableClass1 + ' ' + expandedClass1)!= page1.label
 
                         //- Level 2 submenu
