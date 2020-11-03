@@ -171,8 +171,6 @@ header {
             }
 
             &.active {
-              color: $black;
-
               &:after {
                 width: 60%;
               }
@@ -220,6 +218,7 @@ header {
 
                 &.active {
                   color: $dark;
+                  font-weight: 700;
 
                   &:before {
                     content: '';
@@ -231,11 +230,28 @@ header {
                     background-color: $green;
                   }
                 }
+
+                &.expandable {
+                  &:after {
+                    content: '';
+                    position: absolute;
+                    width: 10px;
+                    height: 100%;
+                    display: block;
+                    right: 10px;
+                    top: 0;
+                    background-image: url('/images/icons/down-chevron.svg');
+                    background-size: 100% auto;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    transform: rotate(-90deg);
+                  }
+                }
               }
 
               &:hover {
-                a {
-                  color: $gray-600;
+                > a {
+                  color: $green;
                 }
               }
             }
@@ -385,6 +401,7 @@ header {
             > li {
               > a {
                 padding-left: 60px;
+
                 &.active {
                   &:before {
                     left: 30px;

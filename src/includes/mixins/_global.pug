@@ -1,0 +1,47 @@
+mixin breadcrumb(slug)
+  if breadcrumb
+    nav(arial-label="breadcrumb")
+      ol.breadcrumb
+        each crumb, index in breadcrumb
+          if (index === (breadcrumb.length - 1) && slug == crumb.slug)
+            li(class="breadcrumb-item active breadcrumb-item-" + crumb.level aria-current="page")!=crumb.label
+          else
+            li(class="breadcrumb-item breadcrumb-item-" + crumb.level)
+              if crumb.url
+                a(href=crumb.url)!=crumb.label
+              else
+                !=crumb.label
+
+mixin nav_menu(page, slug)
+  //- whether or not there is a submenu to expand
+  - var expandableClass = ''
+  if page.submenu
+    - expandableClass = 'expandable'
+
+  - var activeClass = ''
+  if breadcrumb
+    each crumb, index in breadcrumb
+      if crumb.slug === slug
+        - activeClass = 'active'
+
+  a(href=(page.submenu ? '#' : page.href) onclick=(page.submenu ? 'return false' : '') class=activeClass + ' ' + expandableClass)!= page.label
+
+mixin mobile_nav_menu(page, slug)
+  //- whether or not there is a submenu to expand
+  - var expandableClass = ''
+  //- whether or not submenu is expanded
+  - var expandedClass = ''
+  if page.submenu
+    - expandableClass = 'expandable'
+    if breadcrumb
+      each crumb, index in breadcrumb
+        if crumb.slug === slug
+          - expandedClass = 'expanded'
+
+  - var activeClass = ''
+  if breadcrumb
+    each crumb, index in breadcrumb
+      if crumb.slug === slug
+        - activeClass = 'active'
+
+  a(href=(page.submenu ? '#' : page.href) onclick=(page.submenu ? 'return false' : '') class=activeClass + ' ' + expandableClass + ' ' + expandedClass)!= page.label
