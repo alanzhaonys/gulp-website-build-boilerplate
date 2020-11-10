@@ -7,7 +7,6 @@ block params
   //- var pageDescription = ""
   //- var parentSlug = ""
   //- var pageSlug = ""
-  //- var bodyClass = ""
 
 doctype html
 html(lang="en")
@@ -95,8 +94,7 @@ html(lang="en")
         "openingHours": "Mo 09:00-05:00 Tu 09:00-05:00 We 09:00-05:00 Th 09:00-05:00 Fr 09:00-05:00"
         }
 
-
-  body(class=bodyClass)
+  body(class=pageSlug + (parentSlug ? ' parent-' + parentSlug : ''))
 
     noscript
       iframe(src="//www.googletagmanager.com/ns.html?id=" + gtmCode height="0" width="0" style="display:none;visibility:hidden")

@@ -64,9 +64,10 @@ header
     .container
       .row
         .col.col-12
-          form.site-search-form.d-flex(method="get" action="/search")
-            input.keywords.flex-fill(type="search" name="keywords")
-            input(type="submit" value="Search")
+          if enableSiteSearch
+            form.site-search-form.d-flex(method="get" action="/search")
+              input.keywords.flex-fill(type="search" name="keywords")
+              input(type="submit" value="Search")
 
           ul.menu
             each page, slug in menu_config
