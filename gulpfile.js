@@ -14,6 +14,8 @@ var gulp = require("gulp"),
   cache = require("gulp-cache"),
   cachebust = require("gulp-cache-bust"),
   pug = require("gulp-pug"),
+  rename = require("gulp-rename"),
+  flatten = require("gulp-flatten"),
   autoprefixer = require("gulp-autoprefixer");
 
 var domain = "";
@@ -49,6 +51,27 @@ function buildHtml(done) {
         pretty: mode == "development" ? true : false,
       })
     )
+
+    //
+    // If you want to put all files under one directory, uncomment below
+    //
+    /*
+    .pipe(rename(function(path) {
+      //console.log(path);
+      // Skip index.pug at root
+      if (path.dirname === "." && path.basename === "index") {
+        return;
+      }
+      // Change file name to directory name
+      path.basename = path.dirname;
+    }))
+    // Then flatten directory structure
+    .pipe(flatten())
+    */
+    //
+    //
+    //
+
     .pipe(gulp.dest(pageDist));
   done();
 }
