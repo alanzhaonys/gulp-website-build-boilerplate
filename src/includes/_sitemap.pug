@@ -1,0 +1,24 @@
+ul
+  each page, slug in menu_config
+    if page.submenu
+      li!=page.label
+    else
+      li
+        a(href=page.href)!=page.label
+
+    //- Level 1 submenu
+    if page.submenu
+      ul
+        each page1, slug1 in page.submenu
+          if page1.submenu
+            li!=page1.label
+          else
+            li
+              a(href=page1.href)!=page1.label
+
+          //- Level 2 submenu
+          if page1.submenu
+            ul
+              each page2, slug2 in page1.submenu
+                li
+                  a(href=page2.href)!=page2.label

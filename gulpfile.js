@@ -220,6 +220,9 @@ function runBrowser() {
   return browserSync({
     server: {
       baseDir: pageDist,
+      serveStaticOptions: {
+        extensions: ["html"]
+      }
     },
     //proxy: domain,
     notify: true,

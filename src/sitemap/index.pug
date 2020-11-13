@@ -1,0 +1,16 @@
+extends ../includes/_base
+
+block params
+  - var noIndex = true
+  - var noFollow = true
+  - var pageTitle = "Sitemap" + pageTitleSuffix
+  - var pageDescription = "Sitemap"
+  - var pageSlug = "sitemap"
+
+block content
+    main
+      .container
+        .row
+          h1 Sitemap
+          
+          include ../includes/_sitemap
