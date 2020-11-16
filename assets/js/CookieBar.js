@@ -11,6 +11,7 @@ export class CookieBar {
   listen() {
     $("#cookie-close").on("click", () => {
       this.cookie.fadeOut();
+      $("body").removeClass("has-cookie");
       Cookie.set("cookie-acked", true);
     });
 
@@ -22,6 +23,7 @@ export class CookieBar {
     if (!cookieShown) {
         setTimeout(() => {
         this.cookie.fadeIn();
+        $("body").addClass("has-cookie");
       }, this.delay);
     }
   }

@@ -2,19 +2,21 @@ import * as $ from "jquery";
 import * as Cookie from "js-cookie";
 
 export class EntryModal {
-  constructor() {
+  constructor(callback) {
     this.entryModal = $("#entry-modal");
+    this.callback = callback;
     this.initState();
   }
 
-  listen(callback) {
+  listen() {
     let thisRef = this;
 
     $('#enter-btn').on('click', () => {
       thisRef.entryModal.fadeOut();
+      $("body").removeClass("has-entry-modal");
       Cookie.set('entry-modal-shown', true);
 
-      callback();
+      this.callback();
     });
   }
 
@@ -22,6 +24,9 @@ export class EntryModal {
     let entryModalShown = Cookie.get('entry-modal-shown');
     if (!entryModalShown) {
       this.entryModal.fadeIn();
+      $("body").addClass("has-entry-modal");
+    } else {
+      this.callback();
     }
   }
 }

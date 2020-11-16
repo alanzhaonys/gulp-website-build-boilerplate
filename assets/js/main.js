@@ -75,12 +75,12 @@ $(document).ready(function() {
   let nav = new Nav();
   nav.listen();
 
-  let entryModal = new EntryModal();
-  entryModal.listen(() => {
-    // Show cookie bar after bypassing the entry modal
+  let entryModal = new EntryModal(() => {
+    // Callback to show cookie bar after bypassing the entry modal
     let cookieBar = new CookieBar();
     cookieBar.listen();
   });
+  entryModal.listen();
 
   let hamburgerMenu = new HamburgerMenu();
   hamburgerMenu.listen();

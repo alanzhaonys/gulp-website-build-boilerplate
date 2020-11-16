@@ -292,9 +292,12 @@ header {
         // This is what makes the mobile inner scroll
         // If search is disabled, change the form height to "0px"
         $search-form-height: 66px;
-        // If you don't want to see the minimized ISI bar
+        // If you don't want to see the ISI
         $bottom-offset: 0px;
+        // If you want to see the shrinked ISI header
         //$bottom-offset: $isi-header-height;
+        // If you want to see the ISI
+        //$bottom-offset: $isi-mobile-height;
         max-height: calc(100vh - #{$top-bar-mobile-height} - #{$main-nav-mobile-height} - #{$search-form-height} - #{$bottom-offset});
         overflow-y: auto;
         overflow-x: hidden;
