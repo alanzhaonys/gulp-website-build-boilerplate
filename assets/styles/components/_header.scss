@@ -131,11 +131,15 @@ header {
         > li {
           padding: 0;
           margin: 0;
-          display: inline-block;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           position: relative;
 
           > a {
-            display: block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
             padding: 20px 20px;
             font-size: 16px;

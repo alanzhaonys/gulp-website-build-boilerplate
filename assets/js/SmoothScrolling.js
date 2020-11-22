@@ -42,18 +42,17 @@ export class SmoothScrolling {
             event.preventDefault();
 
             //
-            // Determine offset here because of the damn sticky subnavs
+            // Determine offset here
             //
-            if (
-              $("header").hasClass("sticky") &&
-              currentScrollTop - targetScrollTop > 0
-            ) {
+
+            // Typical offset for sticky nav
+            offset = $("header").height();
+            if (currentScrollTop - targetScrollTop > 0) {
               // Scroll is going up
-              offset = $("header").height();
-              //console.log("need to go up");
-            } else if ($(".internal-nav").length > 0) {
+              // Special logic here
+            } else {
               // Scroll is going down
-              offset = $("header").height();
+              // Speical logic here
             }
 
             $("html, body").animate(

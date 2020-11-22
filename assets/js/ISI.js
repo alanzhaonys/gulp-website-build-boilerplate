@@ -24,18 +24,26 @@ export class ISI {
       thisRef.initState();
     });
 
+    //
+    // .toggle-isi is used to expand/collapse sticky ISI
+    //
     $(".toggle-isi").on("click", () => {
       // Close mobile nav if open
       this.hamburgerMenu.deactivate();
 
       // Scroll to top so we always see the header, with as less delay as possible
       $("html, body").animate({ scrollTop: 0 }, 0);
+
       setTimeout(() => {
+        // Toggle the class
         thisRef.stickyIsi.toggleClass("expanded-w-header");
 
-        // expanded-w-header use 100vh CSS calculation which does not work well with browser bar in mobile
-        // thus the workaround below to set height and min-height manually
+        // .expanded-w-header use 100vh CSS calculation which does not work well with browser bar in mobile
+        // thus the *additional* workaround below to set height and min-height manually
         if (thisRef.stickyIsi.hasClass("expanded-w-header")) {
+          //
+          // Expand it
+          //
           let windowHeight = $(window).outerHeight();
           let headerHeight = $("header").outerHeight();
           let stickyIsiHeight = windowHeight - headerHeight;
@@ -51,12 +59,14 @@ export class ISI {
             "min-height": innerStickyIsiHeight + "px",
           });
         } else {
-          // Remove inline style
+          //
+          // Collapse it
+          //
           thisRef.stickyIsi.removeAttr("style");
           thisRef.stickyIsi
             .find(".isi-container .isi-body")
             .removeAttr("style");
-          // And show it
+          // Make sure it's shown
           thisRef.stickyIsi.show();
         }
       }, 30);
