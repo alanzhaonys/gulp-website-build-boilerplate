@@ -8,6 +8,7 @@ import { HamburgerMenu } from "./HamburgerMenu";
 import { SiteSearch } from "./SiteSearch";
 import { SmoothScrolling } from "./SmoothScrolling";
 import { EqualHeight } from "./EqualHeight";
+import { BlurCtaOnScroll } from "./BlurCtaOnScroll";
 import { FadeInOnScroll } from "./FadeInOnScroll";
 import { FadeInOnScrollStaggered } from "./FadeInOnScrollStaggered";
 import { ScrollingNumbers } from "./ScrollingNumbers";
@@ -96,6 +97,9 @@ $(document).ready(function() {
 
   let equalHeight = new EqualHeight();
   equalHeight.listen();
+
+  let blurCtaOnScroll = new BlurCtaOnScroll();
+  blurCtaOnScroll.listen();
 
   let fadeInOnScroll = new FadeInOnScroll();
   fadeInOnScroll.listen();
