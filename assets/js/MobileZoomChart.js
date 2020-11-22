@@ -7,6 +7,7 @@ export class MobileZoomChart {
 
   listen() {
     let thisRef = this;
+
     $(window).on("resize", () => {
       thisRef.makeModal();
     });
@@ -17,24 +18,29 @@ export class MobileZoomChart {
     // data-target is the id of the chart container
     $(".zoom-chart").unbind("click");
 
-    // For single chart
     if (window.innerWidth <= 992) {
-      $(".zoom-chart").click((e, el) => {
-        // Remove existing chart modal in DOM if any
-        $("#chart-modal").remove();
+      $(".zoom-chart").each((i, el) => {
+        $(el).on("click", () => {
+          // Remove existing chart modal in DOM if any
+          $("#chart-modal").remove();
 
-        let target = $("#" + $(this).data("target"));
-        let chart = target.find(".chart-img.d-block");
-        var modal =
-          '<div id="chart-modal"><div class="chart-img-wrapper"><img src="' +
-          chart.attr("src") +
-          '"/></div></div>';
-        $("body").append(modal);
+          let target = $("#" + $(el).data("target"));
+          let chart = target.find(".chart-img-mb");
+          let chartSrc = chart.data("src") ? chart.data("src") : chart.attr("src");
+          var modal =
+            '<div id="chart-modal"><div class="chart-img-wrapper"><img src="' +
+            chartSrc +
+            '"/></div></div>';
+          $("body").append(modal);
 
-        $("#chart-modal").click(() => {
-          $(this).remove();
+          // Click event after initiation
+          $("#chart-modal").on("click", () => {
+            $("#chart-modal").remove();
+          });
         });
       });
+    } else if ($("#chart-modal").length) {
+      $("#chart-modal").remove();
     }
   }
 

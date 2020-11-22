@@ -14,3 +14,14 @@ main {
     margin-top: $top-bar-desktop-height + $main-nav-desktop-height;
   }
 }
+
+sup, span {
+  &.flush {
+    margin-left: -10px;
+    padding-right: 2px;
+    font-size: 16px;
+    top: 0;
+  }
+}
+
+
