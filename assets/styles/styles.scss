@@ -18,7 +18,14 @@
 @import "node_modules/bootswatch/dist/cosmo/bootswatch";
 
 // Hamburger menu
-@import "node_modules/hamburgers/_sass/hamburgers/hamburgers"; 
+@import "node_modules/hamburgers/_sass/hamburgers/hamburgers";
+
+// Tooltip (no .css ext)
+@import "node_modules/tippy.js/dist/tippy";
+
+// Tooltip animation (no .css ext)
+@import "node_modules/tippy.js/dist/backdrop";
+@import "node_modules/tippy.js/animations/shift-away";
 
 // Fonts here
 
@@ -39,6 +46,7 @@
 @import "components/isi";
 @import "components/lists";
 @import "components/mobile-zoom-chart";
+@import "components/clipboard";
 
 // Animations
 @import "animations/scrolling-numbers";

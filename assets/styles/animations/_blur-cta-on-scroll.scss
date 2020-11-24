@@ -1,13 +1,8 @@
 .blur-cta {
   p {
+    transform: translateY(30px);
+    opacity: 0;
     transition: all 0.3s ease-in;
-  }
-
-  &.blur {
-    p {
-      transform: translateY(30px);
-      opacity: 0;
-    }
   }
 
   &.blur-in {

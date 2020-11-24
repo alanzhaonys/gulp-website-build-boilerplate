@@ -1,11 +1,13 @@
 import * as $ from "jquery";
 
 import { Nav } from "./Nav";
+import { SecondaryNav } from "./SecondaryNav";
 import { ISI } from "./ISI";
 import { EntryModal } from "./EntryModal";
 import { CookieBar } from "./CookieBar";
 import { HamburgerMenu } from "./HamburgerMenu";
 import { SiteSearch } from "./SiteSearch";
+import { Clipboard } from "./Clipboard";
 import { SmoothScrolling } from "./SmoothScrolling";
 import { EqualHeight } from "./EqualHeight";
 import { BlurCtaOnScroll } from "./BlurCtaOnScroll";
@@ -76,6 +78,9 @@ $(document).ready(function() {
   let nav = new Nav();
   nav.listen();
 
+  let secondaryNav = new SecondaryNav();
+  secondaryNav.listen();
+
   let entryModal = new EntryModal(() => {
     // Callback to show cookie bar after bypassing the entry modal
     let cookieBar = new CookieBar();
@@ -88,6 +93,9 @@ $(document).ready(function() {
 
   let siteSearch = new SiteSearch();
   siteSearch.listen();
+
+  let clipboard = new Clipboard();
+  clipboard.listen();
 
   let isi = new ISI(hamburgerMenu);
   isi.listen();

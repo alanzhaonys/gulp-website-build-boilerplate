@@ -1,0 +1,15 @@
+.clipboard {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+
+  .clipboard-btn {
+    position: relative;
+    height: 30px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+  }
+}
