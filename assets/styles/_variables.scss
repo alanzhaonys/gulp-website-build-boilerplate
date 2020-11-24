@@ -15,6 +15,10 @@ $color-gray: #cc8b8b;
 $color-black: #000;
 $color-white: #fff;
 
+// Cookie height
+$cookie-desktop-height: 50px;
+$cookie-mobile-height: 80px;
+
 // Top bar heights, if there is no top bar, set them to 0
 $top-bar-desktop-height: 30px;
 $top-bar-mobile-height: 40px;
@@ -24,15 +28,32 @@ $main-nav-desktop-height: 100px;
 $main-nav-mobile-height: 70px;
 
 // Z-indexes
+$isi-zindex: 100;
+$secondary-nav-zindex: 150;
 $header-zindex: 200;
 $mobile-nav-zindex: 300;
 $modal-zindex: 400;
 $cookie-zindex: 500;
 
+// ISI height
 $isi-desktop-height: 20vh;
 $isi-mobile-height: 15vh;
 $isi-min-desktop-height: 200px;
 $isi-min-mobile-height: 100px;
 $isi-header-height: 40px;
 $isi-shrink-height: $isi-header-height;
-$isi-zindex: 100;
+
+// Secondary nav height
+$secondary-nav-desktop-height: 80px;
+$secondary-nav-mobile-height: 120px;
+
+// Offsets
+
+// If you don't want to see the minimized ISI bar, cover it up
+//$mobile-nav-bottom-offset: 0px;
+// Show shrink ISI header
+$mobile-nav-bottom-offset: $isi-header-height;
+//$mobile-nav-bottom-offset: $isi-mobile-height;
+
+// If search is disabled, change the form height to "0px"
+$search-form-bottom-offset: 66px;

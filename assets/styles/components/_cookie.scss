@@ -1,4 +1,4 @@
-#cookie {
+.cookie {
   background-color: $yellow;
   position: fixed;
   top: 0;
@@ -8,21 +8,36 @@
   margin-right: auto;
   display: none;
   color: $white;
-  padding: 20px 0;
   z-index: $cookie-zindex;
+  height: $cookie-mobile-height;
 
-  p {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    line-height: 18px;
-    @include media-breakpoint-up(lg) {
-      font-size: 14px;
-    }
+  @include media-breakpoint-up(lg) {
+    height: $cookie-desktop-height;
+  }
 
-    a {
-      color: $white;
-      text-decoration: underline;
+  &__message,
+  &__close {
+    display: flex;
+    align-items: center;
+  }
+
+  &__close {
+    justify-content: flex-end;
+  }
+
+  &__message {
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+      @include media-breakpoint-up(lg) {
+        font-size: 14px;
+      }
+
+      a {
+        color: $white;
+        text-decoration: underline;
+      }
     }
   }
 }

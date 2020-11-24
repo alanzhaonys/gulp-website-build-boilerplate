@@ -52,10 +52,12 @@ export class Nav {
     if (scrollTop < this.lastScrollTop) {
       //console.log('going up');
       $("header").removeClass("hide");
+      $("body").removeClass("has-hidden-header");
     } else if (scrollTop >= this.lastScrollTop) {
       //console.log('going down');
       if (scrollTop >= this.distance) {
         $("header").addClass("hide");
+        $("body").addClass("has-hidden-header");
       }
     }
     this.lastScrollTop = scrollTop;

@@ -46,7 +46,9 @@ export class ISI {
           //
           let windowHeight = $(window).outerHeight();
           let headerHeight = $("header").outerHeight();
-          let stickyIsiHeight = windowHeight - headerHeight;
+          let cookieHeight = $("#cookie").is(":visible") ? $("#cookie").outerHeight() : 0;
+          let secondaryNavHeight = $("#secondary-nav").length ? $("#secondary-nav").outerHeight() : 0;
+          let stickyIsiHeight = windowHeight - headerHeight - cookieHeight - secondaryNavHeight;
           let isiHeaderHeight = $(".isi-header").outerHeight();
           let innerStickyIsiHeight = stickyIsiHeight - isiHeaderHeight;
 

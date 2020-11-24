@@ -6,16 +6,109 @@ body {
   &.mobile-menu-open {
     overflow: hidden;
   }
-}
 
-main {
-  margin-top: $top-bar-mobile-height + $main-nav-mobile-height;
-  @include media-breakpoint-up(lg) {
-    margin-top: $top-bar-desktop-height + $main-nav-desktop-height;
+  main {
+    position: relative;
+    margin-top: $top-bar-mobile-height + $main-nav-mobile-height;
+    @include media-breakpoint-up(lg) {
+      margin-top: $top-bar-desktop-height + $main-nav-desktop-height;
+    }
+
+    padding: 50px 0;
+  }
+
+  &.has-hidden-header {
+    .secondary-nav {
+      top: 0;
+    }
+  }
+
+  &.has-secondary-nav {
+    main {
+      margin-top: $top-bar-mobile-height + $main-nav-mobile-height + $secondary-nav-mobile-height;
+      @include media-breakpoint-up(lg) {
+        margin-top: $top-bar-desktop-height + $main-nav-desktop-height + $secondary-nav-desktop-height;
+      }
+    }
+  }
+
+  &.has-cookie {
+    //
+    // main
+    //
+    main {
+      margin-top: $top-bar-mobile-height + $main-nav-mobile-height + $cookie-mobile-height;
+      @include media-breakpoint-up(lg) {
+        margin-top: $top-bar-desktop-height + $main-nav-desktop-height + $cookie-desktop-height;
+      }
+    }
+
+    &.has-secondary-nav {
+      main {
+        margin-top: $top-bar-mobile-height + $main-nav-mobile-height + $cookie-mobile-height + $secondary-nav-mobile-height;
+        @include media-breakpoint-up(lg) {
+          margin-top: $top-bar-desktop-height + $main-nav-desktop-height + $cookie-desktop-height + $secondary-nav-desktop-height;
+        }
+      }
+    }
+
+    //
+    // header
+    //
+    header {
+      margin-top: $cookie-mobile-height;
+      @include media-breakpoint-up(lg) {
+        margin-top: $cookie-desktop-height;
+      }
+    }
+
+    &.has-hidden-header {
+      header {
+        @include media-breakpoint-down(md) {
+          top: -($top-bar-mobile-height + $main-nav-mobile-height + $cookie-mobile-height);
+          @include media-breakpoint-up(lg) {
+            top: -($top-bar-mobile-height + $main-nav-desktop-height + $cookie-desktop-height);
+          }
+        }
+      }
+    }
+
+    //
+    // .secondary-nav
+    //
+    .secondary-nav {
+      top: $cookie-mobile-height + $top-bar-mobile-height + $main-nav-mobile-height;
+      @include media-breakpoint-up(lg) {
+        top: $cookie-desktop-height + $top-bar-desktop-height + $main-nav-desktop-height;
+      }
+    }
+
+    &.has-hidden-header {
+      .secondary-nav {
+        top: $cookie-mobile-height;
+        @include media-breakpoint-up(lg) {
+          top: $cookie-desktop-height;
+        }
+      }
+    }
+
+    //
+    //
+    //
+
+    @include media-breakpoint-down(md) {
+      // Account for cookie bar height for mobile nav inner scrollable area
+      #mobile-nav {
+        ul.menu {
+          max-height: calc(100vh - #{$cookie-mobile-height} - #{$top-bar-mobile-height} - #{$main-nav-mobile-height} - #{$search-form-bottom-offset} - #{$mobile-nav-bottom-offset});
+        }
+      }
+    }
   }
 }
 
-sup, span {
+sup,
+span {
   &.flush {
     margin-left: -10px;
     padding-right: 2px;

@@ -46,13 +46,20 @@ export class SmoothScrolling {
             //
 
             // Typical offset for sticky nav
-            offset = $("header").height();
+            //offset = $("header").height();
+
+            let headerHeight = $("header").outerHeight();
+            let cookieHeight = $("#cookie").is(":visible") ? $("#cookie").outerHeight() : 0;
+            let secondaryNavHeight = $("#secondary-nav").length ? $("#secondary-nav").outerHeight() : 0;
+
             if (currentScrollTop - targetScrollTop > 0) {
               // Scroll is going up
               // Special logic here
+              offset = headerHeight + cookieHeight + secondaryNavHeight;
             } else {
               // Scroll is going down
               // Speical logic here
+              offset = cookieHeight + secondaryNavHeight;
             }
 
             $("html, body").animate(

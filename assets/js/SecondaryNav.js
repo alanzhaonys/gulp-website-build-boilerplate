@@ -3,7 +3,7 @@ import * as $ from "jquery";
 /*
 HTML/PUG syntax
 
-section.secondary-nav
+section#secondary-nav.secondary-nav
   .container
     .row
       .col-12
@@ -29,7 +29,7 @@ export class SecondaryNav {
   }
 
   makeNav() {
-    if (!$(".secondary-nav")) {
+    if (!$("#secondary-nav").length) {
       return false;
     }
 
@@ -47,7 +47,7 @@ export class SecondaryNav {
       }
 
       // Matching secondary nav item
-      let nav = $(".secondary-nav").find("[data-" + id);
+      let nav = $("#secondary-nav").find("[data-" + id);
       if (!nav) {
         // Bail if nav if not found
         return true;
@@ -68,7 +68,7 @@ export class SecondaryNav {
 
         $(el).addClass("viewing");
         if (nav && !nav.hasClass("active")) {
-          $(".secondary-nav").find("a.active").removeClass("active");
+          $("#secondary-nav").find("a.active").removeClass("active");
           nav.addClass("active");
         }
       }
@@ -77,5 +77,9 @@ export class SecondaryNav {
 
   initState() {
     this.makeNav();
+
+    if ($("#secondary-nav").length) {
+      $("body").addClass("has-secondary-nav");
+    }
   }
 }

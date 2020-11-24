@@ -3,7 +3,7 @@ import * as Cookie from "js-cookie";
 
 export class CookieBar {
   constructor() {
-    this.delay = 3000;
+    this.delay = 0;
     this.cookie = $("#cookie");
     this.initState();
   }
