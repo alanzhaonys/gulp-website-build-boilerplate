@@ -15,18 +15,18 @@ import { FadeInOnScroll } from "./FadeInOnScroll";
 import { FadeInOnScrollStaggered } from "./FadeInOnScrollStaggered";
 import { ScrollingNumbers } from "./ScrollingNumbers";
 import { MobileZoomChart } from "./MobileZoomChart";
-import lozad from 'lozad';
+import lozad from "lozad";
 import { Quicklink } from "./Quicklink";
 
 // Polyfill - WTF is IE11 doing
-if (typeof NodeList.prototype.forEach !== 'function')  {
+if (typeof NodeList.prototype.forEach !== "function") {
   NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
-if (typeof Object.assign != 'function') {
-  Object.assign = function(target) {
+if (typeof Object.assign != "function") {
+  Object.assign = function (target) {
     if (target == null) {
-      throw new TypeError('Cannot convert undefined or null to object');
+      throw new TypeError("Cannot convert undefined or null to object");
     }
 
     target = Object(target);
@@ -45,21 +45,20 @@ if (typeof Object.assign != 'function') {
 }
 
 // Global
-$.fn.isInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
+$.fn.isInViewport = function () {
+  var elementTop = $(this).offset().top;
+  var elementBottom = elementTop + $(this).outerHeight();
 
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
+  var viewportTop = $(window).scrollTop();
+  var viewportBottom = viewportTop + $(window).height();
 
-    return elementBottom > viewportTop && elementTop < viewportBottom;
+  return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
-$(document).ready(function() {
-
+$(document).ready(function () {
   // Start from top after page reload for better parallax experience
   // After document is ready
- 
+
   /*
   $("html, body").scrollTop(0);
   // After load event
@@ -70,12 +69,25 @@ $(document).ready(function() {
   });
   */
 
+  //
+  // Register service worker
+  // https://developers.google.com/web/tools/workbox/guides/get-started
+  //
+
+  // Check that service workers are supported
+  if ("serviceWorker" in navigator) {
+    // Use the window load event to keep the page load performant
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/service-worker.js");
+    });
+  }
+
   // Initialize lozad
   const observer = lozad();
-  observer.observe(); 
+  observer.observe();
 
   // Initialize other components
-  
+
   let quicklink = new Quicklink();
   quicklink.listen();
 

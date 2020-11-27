@@ -12,7 +12,7 @@ block params
   //- var breadcrumb = [
       { "level": 1, "slug": "level-2-slug", "label": "Breadcrumb 1" },
       { "level": 2, "slug": "level-2-slug", "label": "Breadcrumb 2" },
-    ]
+  //-]
 
 doctype html
 html(lang="en")
@@ -83,30 +83,32 @@ html(lang="en")
         f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', #{gtmCode});
 
-      //- https://jsonld.com/json-ld-generator/
-      script(type='application/ld+json').
-        {
-        "@context": "http://www.schema.org",
-        "@type": "Corporation",
-        "name": "Brandtiv",
-        "url": "https://www.brandtiv.com",
-        "logo": "https://www.brandtiv.com/brandtiv-logo.svg",
-        "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "376 Broadway Suite 23",
-        "addressLocality": "Saratoga Springs",
-        "addressRegion": "New York",
-        "postalCode": "12866",
-        "addressCountry": "United States"
-        },
-        "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "43.0808498",
-        "longitude": "-73.7875428"
-        },
-        "hasMap": "https://goo.gl/maps/cTfcSEUdoJCjo53fA",
-        "openingHours": "Mo 09:00-05:00 Tu 09:00-05:00 We 09:00-05:00 Th 09:00-05:00 Fr 09:00-05:00"
-        }
+    //- https://jsonld.com/json-ld-generator/
+    script(type='application/ld+json').
+      [
+      {
+      "@context": "http://www.schema.org",
+      "@type": "Corporation",
+      "name": "Brandtiv",
+      "url": "https://www.brandtiv.com",
+      "logo": "https://www.brandtiv.com/brandtiv-logo.svg",
+      "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "376 Broadway Suite 23",
+      "addressLocality": "Saratoga Springs",
+      "addressRegion": "New York",
+      "postalCode": "12866",
+      "addressCountry": "United States"
+      },
+      "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "43.0808498",
+      "longitude": "-73.7875428"
+      },
+      "hasMap": "https://goo.gl/maps/cTfcSEUdoJCjo53fA",
+      "openingHours": "Mo 09:00-05:00 Tu 09:00-05:00 We 09:00-05:00 Th 09:00-05:00 Fr 09:00-05:00"
+      }
+      ]
 
   body(class=pageSlug + (parentSlug ? ' parent-' + parentSlug : ''))
 

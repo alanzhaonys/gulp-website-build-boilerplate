@@ -9,6 +9,7 @@ var gulp = require("gulp"),
   sourcemaps = require("gulp-sourcemaps"),
   del = require("del"),
   imagemin = require("gulp-imagemin"),
+  workbox = require("workbox-build"),
   eslint = require("gulp-eslint"),
   pngquant = require("imagemin-pngquant"),
   cache = require("gulp-cache"),
@@ -127,6 +128,20 @@ function scripts() {
 }
 
 //
+// Generate service worker script with workbox
+// https://developers.google.com/web/tools/workbox/guides/generate-complete-sw
+// 
+function serviceWorker() {
+  return workbox.generateSW({
+    swDest: pageDist + '/service-worker.js',
+    globDirectory: pageDist,
+    globPatterns: [
+      '**/*.{js,css,html}'
+    ]
+  });
+}
+
+//
 // Copy downloads
 //
 function downloads() {
@@ -179,8 +194,7 @@ function fonts() {
 // Copy SEO folder
 //
 function seo() {
-  return gulp.src(seoSource + "/**/*")
-    .pipe(gulp.dest(seoDist));
+  return gulp.src(seoSource + "/**/*").pipe(gulp.dest(seoDist));
 }
 
 //
@@ -221,8 +235,8 @@ function runBrowser() {
     server: {
       baseDir: pageDist,
       serveStaticOptions: {
-        extensions: ["html"]
-      }
+        extensions: ["html"],
+      },
     },
     //proxy: domain,
     notify: true,
@@ -291,6 +305,7 @@ gulp.task(
     styles,
     jslint,
     scripts,
+    serviceWorker,
     ebextensions,
     cacheBust
   )
