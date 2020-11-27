@@ -15,12 +15,14 @@
     height: $secondary-nav-desktop-height;
   }
 
-  .container .row, .col-12 {
+  .container .row,
+  .col-12 {
     display: flex;
     align-items: center;
   }
 
-  span, ul {
+  span,
+  ul {
     display: inline-flex;
     align-items: center;
     color: $color-white;
@@ -42,32 +44,32 @@
         position: relative;
         text-decoration: none;
 
-            &:after {
-              display: block;
-              content: '';
-              width: 0;
-              height: 3px;
-              background-color: $white;
-              bottom: -5px;
-              position: absolute;
-              left: 0;
-              right: 0;
-              margin-left: auto;
-              margin-right: auto;
-              transition: width 0.2s ease-in-out;
-            }
+        &:after {
+          display: block;
+          content: '';
+          width: 0;
+          height: 3px;
+          background-color: $white;
+          bottom: -5px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          transition: width 0.2s linear;
+        }
 
-            &:hover {
-              &:after {
-                //width: 60%;
-              }
-            }
+        &:hover {
+          &:after {
+            //width: 60%;
+          }
+        }
 
-            &.active {
-              &:after {
-                width: 60%;
-              }
-            }
+        &.active {
+          &:after {
+            width: 60%;
+          }
+        }
       }
     }
   }
