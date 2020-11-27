@@ -133,11 +133,21 @@ function scripts() {
 // 
 function serviceWorker() {
   return workbox.generateSW({
+    //cacheId: '',
     swDest: pageDist + '/service-worker.js',
     globDirectory: pageDist,
     globPatterns: [
-      '**/*.{js,css,html}'
-    ]
+      '**/*.{js,css,html,png,svg,jpg,gif,json,pdf,ttf,eot,woff,woff2,ico,xml,txt}*'
+    ],
+    // https://www.thepolyglotdeveloper.com/2019/03/service-workers-workbox-hugo-static-generated-site/
+    modifyURLPrefix: {
+        "": "/"
+    },
+    clientsClaim: true,
+    skipWaiting: true,
+    ignoreURLParametersMatching: [/./],
+    offlineGoogleAnalytics: true,
+    maximumFileSizeToCacheInBytes: 4 * 1024 * 1024
   });
 }
 

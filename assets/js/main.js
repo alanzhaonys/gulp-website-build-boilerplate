@@ -74,13 +74,15 @@ $(document).ready(function () {
   // https://developers.google.com/web/tools/workbox/guides/get-started
   //
 
-  // Check that service workers are supported
+  // Check that service workers are supported, uncomment for PWA
+  /*
   if ("serviceWorker" in navigator) {
     // Use the window load event to keep the page load performant
     window.addEventListener("load", () => {
       navigator.serviceWorker.register("/service-worker.js");
     });
   }
+  */
 
   // Initialize lozad
   const observer = lozad();
