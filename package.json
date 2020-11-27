@@ -45,6 +45,7 @@
     "js-cookie": "^2.2.1",
     "lozad": "^1.16.0",
     "lunr": "^2.3.9",
+    "quicklink": "^2.0.0",
     "tippy.js": "^6.2.7",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.1.3",

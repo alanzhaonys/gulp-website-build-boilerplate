@@ -16,6 +16,7 @@ import { FadeInOnScrollStaggered } from "./FadeInOnScrollStaggered";
 import { ScrollingNumbers } from "./ScrollingNumbers";
 import { MobileZoomChart } from "./MobileZoomChart";
 import lozad from 'lozad';
+import { Quicklink } from "./Quicklink";
 
 // Polyfill - WTF is IE11 doing
 if (typeof NodeList.prototype.forEach !== 'function')  {
@@ -71,9 +72,12 @@ $(document).ready(function() {
 
   // Initialize lozad
   const observer = lozad();
-  observer.observe();
+  observer.observe(); 
 
   // Initialize other components
+  
+  let quicklink = new Quicklink();
+  quicklink.listen();
 
   let nav = new Nav();
   nav.listen();
