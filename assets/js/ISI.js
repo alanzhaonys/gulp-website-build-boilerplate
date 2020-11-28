@@ -31,6 +31,11 @@ export class ISI {
       // Close mobile nav if open
       this.hamburgerMenu.deactivate();
 
+      // Close secondary nav if open
+      if ($("#secondary-nav").length) {
+        $("#secondary-nav").removeClass("mobile-open");
+      }
+
       // Scroll to top so we always see the header, with as less delay as possible
       $("html, body").animate({ scrollTop: 0 }, 0);
 

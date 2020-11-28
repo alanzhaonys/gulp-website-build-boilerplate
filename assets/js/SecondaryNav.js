@@ -26,6 +26,18 @@ export class SecondaryNav {
     $(window).on("resize", () => {
       this.makeNav();
     });
+
+    $("#secondary-nav").find("span").on("click", () => {
+      if (window.innerWidth <= 992) {
+        $("#secondary-nav").toggleClass("mobile-open");
+      }
+    });
+
+    $("#secondary-nav").find("li").on("click", () => {
+      if (window.innerWidth <= 992) {
+        $("#secondary-nav").removeClass("mobile-open");
+      }
+    });
   }
 
   makeNav() {
