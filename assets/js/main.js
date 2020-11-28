@@ -90,8 +90,12 @@ $(document).ready(function () {
 
   // Initialize other components
 
-  let quicklink = new Quicklink();
-  quicklink.listen();
+  // Turn on quicklink for production, avoid it for http://localhost dev
+  // as it causes issue with BrowserSync
+  if (location.hostname !== "localhost") {
+    let quicklink = new Quicklink();
+    quicklink.listen();
+  }
 
   let nav = new Nav();
   nav.listen();
