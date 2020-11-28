@@ -42,9 +42,9 @@ var mode = "development";
 //
 // Compile PUG to HTML
 //
-function buildHtml(done) {
+function buildHtml() {
   var YOUR_LOCALS = {};
-  gulp
+  return gulp
     .src([pageSource + "/**/*.pug", "!" + pageSource + "/includes/**"])
     .pipe(
       pug({
@@ -74,7 +74,6 @@ function buildHtml(done) {
     //
 
     .pipe(gulp.dest(pageDist));
-  done();
 }
 
 //
@@ -266,31 +265,40 @@ function runBrowser() {
 //
 // Reload browser
 //
-function reloadBrowser(done) {
+function reloadBrowser(cb) {
   browserSync.reload();
-  done();
+  // https://gulpjs.com/docs/en/getting-started/async-completion/
+  cb();
 }
 
 //
 // Set production mode
 //
-function setProductionMode(done) {
+function setProductionMode(cb) {
   mode = "production";
-  done();
+  // https://gulpjs.com/docs/en/getting-started/async-completion/
+  cb();
 }
 
 //
 // Tasks to run as source files are changed
 //
 function watchChanges() {
-  gulp.watch(pageSource + "/**/*.pug", gulp.series(buildHtml, reloadBrowser));
-  gulp.watch(styleSource + "/**/*.scss", gulp.series(styles, reloadBrowser));
+  // Watch for source change
+  gulp.watch(pageSource + "/**/*.pug", buildHtml);
+  gulp.watch(styleSource + "/**/*.scss", styles);
   gulp.watch(
     scriptSource + "/**/*.js",
-    gulp.series(jslint, scripts, reloadBrowser)
+    gulp.series(jslint, scripts)
   );
-  gulp.watch(imageSource + "/**/*", gulp.series(images, reloadBrowser));
-  gulp.watch(fontSource + "/**/*", gulp.series(fonts, reloadBrowser));
+  gulp.watch(imageSource + "/**/*", images);
+  gulp.watch(fontSource + "/**/*", fonts);
+  gulp.watch(downloadSource + "/**/*", downloads);
+  gulp.watch(seoSource + "/**/*", seo);
+  gulp.watch(faviconSource + "/**/*", favicons);
+
+  // Watch for dst changes, then reload
+  gulp.watch(pageDist + "/**/*", reloadBrowser);
 }
 
 //
@@ -299,19 +307,27 @@ function watchChanges() {
 gulp.task("default", gulp.parallel(watchChanges, cacheBust, runBrowser));
 
 //
-// Build task
+// Individual tasks
 //
-
 gulp.task("html", gulp.series(clear, buildHtml));
-
-gulp.task("images", gulp.series(clear, images));
-
-gulp.task("scripts", gulp.series(clear, jslint, scripts));
 
 gulp.task("styles", gulp.series(clear, styles));
 
+gulp.task("scripts", gulp.series(clear, jslint, scripts));
+
+gulp.task("images", gulp.series(clear, images));
+
+gulp.task("fonts", gulp.series(clear, fonts));
+
+gulp.task("downloads", gulp.series(clear, downloads));
+
+gulp.task("seo", gulp.series(clear, seo));
+
 gulp.task("favicons", gulp.series(clear, favicons));
 
+//
+// Build task
+//
 gulp.task(
   "build",
   gulp.series(

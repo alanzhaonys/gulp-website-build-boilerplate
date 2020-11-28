@@ -23,9 +23,15 @@
 
   span,
   ul {
-    display: inline-flex;
-    align-items: center;
     color: $color-white;
+    display: flex;
+    align-items: center;
+
+    border: 1px solid yellow;
+
+    @include media-breakpoint-up(lg) {
+      display: inline-flex;
+    }
   }
 
   ul {
@@ -34,9 +40,13 @@
     margin: 0;
 
     li {
-      display: inline-flex;
       justify-content: center;
       align-items: center;
+      display: flex;
+
+      @include media-breakpoint-up(lg) {
+        display: inline-flex;
+      }
 
       a {
         padding: 0 20px;
