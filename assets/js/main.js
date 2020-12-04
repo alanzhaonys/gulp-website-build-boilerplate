@@ -17,6 +17,7 @@ import { ScrollingNumbers } from "./ScrollingNumbers";
 import { MobileZoomChart } from "./MobileZoomChart";
 import lozad from "lozad";
 import { Quicklink } from "./Quicklink";
+import { BackToTop } from "./BackToTop";
 
 // Polyfill - WTF is IE11 doing
 if (typeof NodeList.prototype.forEach !== "function") {
@@ -142,4 +143,7 @@ $(document).ready(function () {
 
   let mobileZoomChart = new MobileZoomChart();
   mobileZoomChart.listen();
+
+  let backToTop = new BackToTop();
+  backToTop.listen();
 });

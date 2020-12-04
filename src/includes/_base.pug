@@ -81,7 +81,7 @@ html(lang="en")
         j.async = true;
         j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', #{gtmCode});
+      })(window, document, 'script', 'dataLayer', "#{gtmCode}");
 
     //- https://jsonld.com/json-ld-generator/
     script(type='application/ld+json').

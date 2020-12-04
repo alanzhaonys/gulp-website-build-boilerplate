@@ -93,9 +93,12 @@ export class SmoothScrolling {
     // On load
     let hash = window.location.hash;
     if (hash.length && $(hash).length) {
+      // Typical offset for sticky nav
+      let offset = $("header").height();
+
       $("html, body").animate(
         {
-          scrollTop: $(hash).offset().top,
+          scrollTop: $(hash).offset().top - offset - 1,
         },
         scrollSpeed
       );

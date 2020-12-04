@@ -28,6 +28,14 @@
           content: "-";
           font-weight: 400;
         }
+
+        ul {
+          li {
+            &:before {
+              content: "○";
+            }
+          }
+        }
       }
     }
   }
