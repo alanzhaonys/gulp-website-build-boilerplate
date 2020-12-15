@@ -1,0 +1,37 @@
+extends ../../includes/_base
+
+block params
+  - var pageTitle = "Content >> Columns" + pageTitleSuffix
+  - var pageDescription = "columns"
+  - var parentSlug = "content"
+  - var pageSlug = "columns"
+  -
+    var breadcrumb = [
+      { "level": 1, "slug": "content", "label": "Content" },
+      { "level": 2, "slug": "columns", "label": "Columns" },
+    ]
+
+block content
+    main
+      .container
+        .row
+          .col-12
+            .three-columns
+              .row
+                .col-12.col-md-4
+                  .three-columns__item(data-equal-height=300)
+                    .three-columns__item__icon.on-scroll-animation(data-on-scroll-animation="grow")
+                    h2.three-columns__item__header Regular
+                    p.three-columns__item__content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate.
+
+                .col-12.col-md-4
+                  .three-columns__item(data-equal-height=300)
+                    .three-columns__item__icon.on-scroll-animation(data-on-scroll-animation="grow" data-on-scroll-delay=500)
+                    h2.three-columns__item__header Outlined
+                    p.three-columns__item__content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate.
+
+                .col-12.col-md-4
+                  .three-columns__item(data-equal-height=300)
+                    .three-columns__item__icon.on-scroll-animation(data-on-scroll-animation="grow" data-on-scroll-delay=1000)
+                    h2.three-columns__item__header Gradient
+                    p.three-columns__item__content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate.

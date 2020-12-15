@@ -1,0 +1,31 @@
+.three-columns {
+  &__item {
+    padding: 30px;
+    box-shadow: 0 3px 6px $color-gray;
+    border-radius: 10px;
+
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 30px;
+    }
+
+    &__icon {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      background-color: $color-blue;
+      color: $color-white;
+      display: block;
+      margin: 0 auto 30px;
+    }
+
+    &__header {
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    &__content {
+      margin-bottom: 0;
+    }
+  }
+}

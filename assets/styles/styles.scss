@@ -1,6 +1,9 @@
 // Your variables
 @import "variables";
 
+// Boostrap overrides
+@import "bootstrap-overrides";
+
 // Bootswatch variables
 @import "bootswatch-variables";
 
@@ -28,6 +31,7 @@
 @import "node_modules/tippy.js/animations/shift-away";
 
 // Fonts here
+//@import "fonts";
 
 // Mixin
 @import "mixin/mixin";
@@ -42,6 +46,7 @@
 @import "content/button";
 
 // Components
+@import "components/buttons";
 @import "components/header";
 @import "components/footer";
 @import "components/entry-modal";
@@ -53,11 +58,16 @@
 @import "components/clipboard";
 @import "components/back-to-top";
 
+// Layouts
+@import "components/three-columns.scss";
+
 // Animations
 @import "animations/scrolling-numbers";
 @import "animations/blur-cta-on-scroll";
 @import "animations/fade-in-on-scroll";
 @import "animations/fade-in-on-scroll-staggered";
+@import "animations/on-scroll-animation";
+@import "animations/on-scroll-grow";
 
 // Pages
 @import "pages/index";

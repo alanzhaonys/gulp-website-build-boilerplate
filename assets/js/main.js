@@ -13,6 +13,7 @@ import { EqualHeight } from "./EqualHeight";
 import { BlurCtaOnScroll } from "./BlurCtaOnScroll";
 import { FadeInOnScroll } from "./FadeInOnScroll";
 import { FadeInOnScrollStaggered } from "./FadeInOnScrollStaggered";
+import { OnScrollAnimation } from "./OnScrollAnimation";
 import { ScrollingNumbers } from "./ScrollingNumbers";
 import { MobileZoomChart } from "./MobileZoomChart";
 import lozad from "lozad";
@@ -137,6 +138,9 @@ $(document).ready(function () {
 
   let fadeInOnScrollStaggered = new FadeInOnScrollStaggered();
   fadeInOnScrollStaggered.listen();
+
+  let onScrollAnimation = new OnScrollAnimation();
+  onScrollAnimation.listen();
 
   let scrollingNumbers = new ScrollingNumbers();
   scrollingNumbers.listen();

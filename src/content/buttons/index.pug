@@ -1,0 +1,45 @@
+extends ../../includes/_base
+
+block params
+  - var pageTitle = "Content >> Buttons" + pageTitleSuffix
+  - var pageDescription = "buttons"
+  - var parentSlug = "content"
+  - var pageSlug = "buttons"
+  -
+    var breadcrumb = [
+      { "level": 1, "slug": "content", "label": "Content" },
+      { "level": 2, "slug": "buttons", "label": "Buttons" },
+    ]
+
+block content
+    main
+      .container
+        .row
+          .col-md-4
+            h2 Regular
+              a.button(href="#" onclick="return false") Blue
+
+          .col-md-4
+            h2 Outlined
+              a.button.button--outlined(href="#" onclick="return false") Outlined
+
+          .col-md-4
+            h2 Gradient
+        
+        .row
+          .col-md-4
+            h2 Icons
+              a.button(href="#" onclick="return false") Blue
+
+          .col-md-4
+            h2 Gradient Background
+
+          .col-md-4
+            h2 MISC
+              a.button.button--small(href="#" onclick="return false") Small
+
+              a.button.button--large(href="#" onclick="return false") Large
+
+              a.button.button--selected(href="#" onclick="return false") Selected
+  
+              a.button.button--disabled(href="#" onclick="return false") Disabled
