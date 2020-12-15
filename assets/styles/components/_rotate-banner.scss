@@ -1,0 +1,50 @@
+.rotate-banner {
+  position: relative;
+
+  &__headline-1 {
+    opacity: 0;
+    animation-name: rotate-banner__headline-1;
+    animation-duration: 4s;
+  }
+
+  &__headline-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    opacity: 1;
+    animation-name: rotate-banner__headline-2;
+    animation-duration: 5s;
+  }
+
+  @keyframes rotate-banner__headline-1 {
+    0% {
+      opacity: 1;
+    }
+
+    95% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes rotate-banner__headline-2 {
+    0% {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+
+    80% {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

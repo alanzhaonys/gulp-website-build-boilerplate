@@ -1,0 +1,79 @@
+// https://frontstuff.io/generate-all-your-utility-classes-with-sass-maps
+
+$reset-elements: (
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  h7,
+  div,
+  span,
+  section
+);
+
+@mixin reset-margins {
+  @each $name in $reset-elements {
+    .#{$name} {
+      &--no-margin-top {
+        margin-top: 0!important;
+      }
+
+      &--no-margin-bottom {
+        margin-bottom: 0!important;
+      }
+
+      &--no-margin-left {
+        margin-left: 0!important;
+      }
+
+      &--no-margin-right {
+        margin-right: 0!important;
+      }
+
+      &--no-padding-top {
+        padding-top: 0!important;
+      }
+
+      &--no-padding-bottom {
+        padding-bottom: 0!important;
+      }
+
+      &--no-padding-left {
+        padding-left: 0!important;
+      }
+
+      &--no-padding-right {
+        padding-right: 0!important;
+      }
+    }
+  }
+}
+
+@mixin text-color-modifiers {
+  @each $name, $hex in $colors {
+    &--#{$name} {
+      color: $hex !important;
+    }
+  }
+}
+
+@mixin bg-color-modifiers {
+  @each $name, $hex in $colors {
+    &--#{$name} {
+      background-color: $hex !important;
+    }
+  }
+}
+
+@include reset-margins;
+
+.text {
+  @include text-color-modifiers;
+}
+
+.bg {
+  @include bg-color-modifiers;
+}

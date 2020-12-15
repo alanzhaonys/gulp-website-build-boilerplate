@@ -5,7 +5,7 @@ $body-font-size: 18px;;
 
 // Colors
 $color-blue: navy;
-$color-red: green;
+$color-red: red;
 $color-yellow: #f6cc0d;
 $color-light-yellow: #ffee00;
 $color-purple: #b41d8d;
@@ -14,6 +14,21 @@ $color-dark-purple: #3b0f28;
 $color-gray: #cc8b8b;
 $color-black: #000;
 $color-white: #fff;
+$color-body: #333;
+
+$colors: (
+  blue: $color-blue,
+  red: $color-red,
+  yellow: $color-yellow,
+  light-yellow: $color-light-yellow,
+  purple: $color-purple,
+  light-purple: $color-light-purple,
+  dark-purple: $color-dark-purple,
+  gray: $color-gray,
+  black: $color-black,
+  white: $color-white,
+  body: $color-body
+);
 
 // Cookie height
 $cookie-desktop-height: 50px;

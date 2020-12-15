@@ -2,6 +2,11 @@ html,
 body {
 }
 
+// For lazy load images
+img:not([src]) {
+  visibility: hidden;
+}
+
 body {
   &.mobile-menu-open {
     overflow: hidden;

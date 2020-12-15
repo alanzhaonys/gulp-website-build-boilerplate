@@ -125,6 +125,6 @@ export class ISI {
     var viewportBottom =
       viewportTop + $(window).height() - this.stickyIsi.outerHeight();
 
-    return elementBottom > viewportTop && elementTop < viewportBottom;
+    return (elementBottom > viewportTop && elementTop < viewportBottom) || elementBottom < viewportTop;
   }
 }
