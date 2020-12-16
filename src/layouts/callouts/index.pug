@@ -1,0 +1,79 @@
+extends ../../includes/_base
+
+block params
+  - var pageTitle = "Layouts >> Callouts" + pageTitleSuffix
+  - var pageDescription = "Callouts"
+  - var parentSlug = "layouts"
+  - var pageSlug = "callouts"
+  -
+    var breadcrumb = [
+      { "level": 1, "slug": "layouts", "label": "Layouts" },
+      { "level": 2, "slug": "callouts", "label": "Callouts" },
+    ]
+
+block content
+    main
+      section.callout1.callout--w-100
+        .container
+          .row
+            .col-12
+              h2.callout1__header
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+              p.callout1__description
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
+              .callout1__button-container
+                a.button.button--no-mb.callout1__button(href="#" onclick="return false") Click here for more
+
+      section
+        .container
+          .row
+            .col-12.p-4
+
+      section
+        .container
+          .row
+            .col-12
+              .callout1
+                .row
+                  .col-12
+                    h2.callout1__header
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    p.callout1__description
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
+                    .callout1__button-container
+                      a.button.button--no-mb.callout1__button(href="#" onclick="return false") Click here for more
+     
+      section
+        .container
+          .row
+            .col-12.p-4
+
+      section.callout2.callout--w-100
+        .container
+          .row
+            .col-12.col-md-9.col-lg-10
+              h2.callout2__header
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              p.callout2__description
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
+            .col-12.col-md-3.col-lg-2.callout2__button-container
+              a.button.button--no-mb.callout2__button(href="#" onclick="return false") Click here for more
+
+      section
+        .container
+          .row
+            .col-12.p-4
+
+      section
+        .container
+          .row
+            .col-12
+              .callout2
+                .row
+                  .col-12.col-md-9.col-lg-10
+                    h2.callout2__header
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    p.callout2__description
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
+                  .col-12.col-md-3.col-lg-2.callout2__button-container
+                    a.button.button--no-mb.callout2__button(href="#" onclick="return false") Click here for more

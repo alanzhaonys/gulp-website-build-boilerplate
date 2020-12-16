@@ -1,13 +1,13 @@
 extends ../../includes/_base
 
 block params
-  - var pageTitle = "Content >> Columns" + pageTitleSuffix
+  - var pageTitle = "Layouts >> Columns" + pageTitleSuffix
   - var pageDescription = "columns"
-  - var parentSlug = "content"
+  - var parentSlug = "layouts"
   - var pageSlug = "columns"
   -
     var breadcrumb = [
-      { "level": 1, "slug": "content", "label": "Content" },
+      { "level": 1, "slug": "layouts", "label": "Layouts" },
       { "level": 2, "slug": "columns", "label": "Columns" },
     ]
 
@@ -35,3 +35,28 @@ block content
                     .three-columns__item__icon.on-scroll-animation(data-on-scroll-animation="grow" data-on-scroll-delay=1000)
                     h2.three-columns__item__header Gradient
                     p.three-columns__item__content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate.
+
+        .row
+          .col-12.p-4
+
+        .row
+          .col-12
+            .two-columns
+              .row
+                .col-12.col-lg-6
+                  .two-columns__item
+                    .row.flex-column-reverse.flex-lg-row
+                      .col-12.col-lg-6.two-columns__item__content
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate.
+                      .col-12.col-lg-6.two-columns__item__thumbnail
+                        a(href="#" onclick="return false")
+                          img.w-100.lozad(data-src="https://via.placeholder.com/250x150" alt="image")
+
+                .col-12.col-lg-6
+                  .two-columns__item
+                    .row.flex-column-reverse.flex-lg-row
+                      .col-12.col-lg-6.two-columns__item__content
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate.
+                      .col-12.col-lg-6.two-columns__item__thumbnail
+                        a(href="#" onclick="return false")
+                          img.w-100.lozad(data-src="https://via.placeholder.com/250x150" alt="image")

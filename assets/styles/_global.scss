@@ -3,7 +3,7 @@ body {
 }
 
 // For lazy load images
-img:not([src]) {
+img:not([src|srcset]) {
   visibility: hidden;
 }
 

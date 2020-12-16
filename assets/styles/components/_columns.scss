@@ -1,3 +1,33 @@
+.two-columns {
+  &__item {
+    padding: 30px;
+    box-shadow: 0 3px 6px $color-gray;
+    border-radius: 10px;
+
+    @include media-breakpoint-down(md) {
+      margin-bottom: 30px;
+    }
+
+    &__content {
+      p {
+        margin-bottom: 0;
+
+        @include media-breakpoint-down(md) {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__thumbnail {
+      img {
+        max-width: 300px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
 .three-columns {
   &__item {
     padding: 30px;

@@ -1,6 +1,6 @@
 a {
   &.button {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: 50px;
@@ -12,17 +12,27 @@ a {
     margin-bottom: 30px;
     position: relative;
     text-align: center;
-    padding: 10px 10px;
+    padding: 10px 20px;
     font-size: 13px;
+    height: 50px;
+    width: auto;
 
     @include media-breakpoint-up(lg) {
-      padding: 14px 30px;
+      padding: 15px 30px;
       font-size: 15px;
     }
 
     &:hover {
       background-color: $color-white;
       color: $color-blue;
+    }
+
+    &--no-mb {
+      margin-bottom: 0;
+    }
+
+    &--w-100 {
+      width: 100%;
     }
 
     &--disabled {

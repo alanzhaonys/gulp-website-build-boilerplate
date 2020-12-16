@@ -78,6 +78,10 @@ header {
       outline: none;
       padding: 8px;
 
+      &:hover {
+        opacity: 1;
+      }
+
       .hamburger-box {
         width: 30px;
       }
