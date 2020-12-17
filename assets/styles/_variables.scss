@@ -44,12 +44,12 @@ $main-nav-desktop-height: 100px;
 $main-nav-mobile-height: 70px;
 
 // Z-indexes
-$isi-zindex: 100;
 $secondary-nav-zindex: 150;
 $header-zindex: 200;
 $mobile-nav-zindex: 300;
-$modal-zindex: 400;
 $cookie-zindex: 500;
+$isi-zindex: 900;
+$modal-zindex: 999;
 
 // ISI height
 $isi-desktop-height: 20vh;

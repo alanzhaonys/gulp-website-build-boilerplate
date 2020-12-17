@@ -16,6 +16,7 @@ import { FadeInOnScrollStaggered } from "./FadeInOnScrollStaggered";
 import { OnScrollAnimation } from "./OnScrollAnimation";
 import { ScrollingNumbers } from "./ScrollingNumbers";
 import { MobileZoomChart } from "./MobileZoomChart";
+import { JarallaxParallax } from "./JarallaxParallax";
 import lozad from "lozad";
 import { Quicklink } from "./Quicklink";
 import { BackToTop } from "./BackToTop";
@@ -147,6 +148,9 @@ $(document).ready(function () {
 
   let mobileZoomChart = new MobileZoomChart();
   mobileZoomChart.listen();
+
+  let jarallaxParallax = new JarallaxParallax();
+  jarallaxParallax.listen();
 
   let backToTop = new BackToTop();
   backToTop.listen();

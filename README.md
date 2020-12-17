@@ -63,5 +63,5 @@ Mixin functions are located in `src/includes/mixins`
 # Upgrade
 
 Yarn
-Running `yarn upgrade` will upgrade all the packages inside `node_modules` to the latest versions and update `package.json` file. You're free to upgrade, but we might not be able to support the particular version of the package.
+Running `yarn upgrade --latest` will upgrade all the packages inside `node_modules` to the latest versions and update `package.json` file. You're free to upgrade, but we might not be able to support the particular version of the package.
 

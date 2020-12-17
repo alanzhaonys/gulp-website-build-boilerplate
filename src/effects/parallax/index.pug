@@ -13,12 +13,25 @@ block params
 
 block content
     main
+      section
+        .container
+          .row
+            .col-12
+              h1 Parallax
+
+      section
+        .container
+          .row
+            .col-12.p-4
+
       section.callout1.callout--w-100.parallax-background.parallax-background--basic
         .container
           .row
             .col-12
               h2.callout1__header.text--white
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                | This is basic parallax, the background does not move, pure CSS
+              p.callout1__description.text--white
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
               p.callout1__description.text--white
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
               .callout1__button-container
@@ -28,3 +41,35 @@ block content
         .container
           .row
             .col-12.p-4
+
+      section.callout1.callout--w-100.jarallax(data-jarallax data-speed="0.5" data-img-src="/images/backgrounds/DSC08792.jpg" data-img-position="bottom center")
+        .container
+          .row
+            .col-12
+              h2.callout1__header.text--black
+                | Parallax with image background moving, requires Jarallax
+              p.callout1__description.text--black
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
+              p.callout1__description.text--black
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
+              .callout1__button-container
+                a.button.button--no-mb.callout1__button(href="#" onclick="return false") Click here for more
+
+
+      section
+        .container
+          .row
+            .col-12.p-4
+
+      section.callout1.callout--w-100.jarallax(data-jarallax data-speed="0.5" data-jarallax-video="https://vimeo.com/277534593")
+        .container
+          .row
+            .col-12
+              h2.callout1__header.text--black
+                | Parallax with video background moving, requires Jarallax
+              p.callout1__description.text--black
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
+              p.callout1__description.text--black
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
+              .callout1__button-container
+                a.button.button--no-mb.callout1__button(href="#" onclick="return false") Click here for more
