@@ -1,0 +1,26 @@
+extends ../../includes/_base
+
+block params
+  - var pageTitle = "Effects >> Cutout Text" + pageTitleSuffix
+  - var pageDescription = "Cutout Text"
+  - var parentSlug = "effects"
+  - var pageSlug = "cutout-text-page"
+  -
+    var breadcrumb = [
+      { "level": 1, "slug": "effects", "label": "Effects" },
+      { "level": 2, "slug": "cutout-text-page", "label": "Cutout Text" },
+    ]
+
+block content
+    main
+      section.cutout-text-container.parallax-background.parallax-background--basic
+        .container.h-100
+          .row.h-100
+            .col-12.d-flex.align-items-center.justify-content-center
+              .cutout-text CUTOUT TEXT
+
+
+      section
+        .container
+          .row
+            .col-12.p-4

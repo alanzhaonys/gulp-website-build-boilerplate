@@ -1,0 +1,119 @@
+$timeline-circle-radius: 30px;
+$timeline-line-width: 6px;
+$timeline-triangle-top: 30px;
+
+.timeline {
+  position: relative;
+  margin: 0 auto;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: $timeline-line-width;
+    background-color: $color-blue;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -calc(#{$timeline-line-width} / 2);
+  }
+
+  &__container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: $timeline-circle-radius;
+      height: $timeline-circle-radius;
+      right: -calc(#{$timeline-circle-radius} / 2);
+      background-color: $color-white;
+      border: 4px solid $color-orange;
+      top: calc(#{$timeline-triangle-top + 10px} - #{$timeline-circle-radius} / 2);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    &--left {
+      left: 0;
+      // Arrow
+      &:before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: $timeline-triangle-top;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid $color-white;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent $color-gray;
+      }
+    }
+
+    &--right {
+      left: 50%;
+      // Arrow
+      &:before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: $timeline-triangle-top;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid $color-white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent $color-gray transparent transparent;
+      }
+
+      &:after {
+        left: -calc(#{$timeline-circle-radius} / 2);
+      }
+    }
+  }
+
+  &__content {
+    padding: 20px 30px;
+    background-color: $color-gray;
+    position: relative;
+    border-radius: 6px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .timeline {
+    &:after {
+      left: $timeline-circle-radius;
+    }
+
+    &__container {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+
+      &:before {
+        left: 60px;
+        border: medium solid $color-white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent $color-gray transparent transparent;
+      }
+
+      &--left {
+        &:after {
+          left: calc(#{$timeline-circle-radius} / 2);
+        }
+      }
+
+      &--right {
+        left: 0%;
+
+        &:after {
+          left: calc(#{$timeline-circle-radius} / 2);
+        }
+      }
+    }
+  }
+}

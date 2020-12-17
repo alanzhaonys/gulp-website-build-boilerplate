@@ -45,7 +45,7 @@ header {
       // Slide down/up animation
       overflow: hidden;
       max-height: 0;
-      transition: max-height 0.4s ease-in-out;
+      transition: max-height 0.2s linear;
 
       &.show {
         max-height: 1000px;

@@ -1,0 +1,30 @@
+extends ../../includes/_base
+
+block params
+  - var pageTitle = "Effects >> Parallax" + pageTitleSuffix
+  - var pageDescription = "Parallax"
+  - var parentSlug = "effects"
+  - var pageSlug = "parallax"
+  -
+    var breadcrumb = [
+      { "level": 1, "slug": "effects", "label": "Effects" },
+      { "level": 2, "slug": "parallax", "label": "Parallax" },
+    ]
+
+block content
+    main
+      section.callout1.callout--w-100.parallax-background.parallax-background--basic
+        .container
+          .row
+            .col-12
+              h2.callout1__header.text--white
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+              p.callout1__description.text--white
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.
+              .callout1__button-container
+                a.button.button--no-mb.callout1__button(href="#" onclick="return false") Click here for more
+
+      section
+        .container
+          .row
+            .col-12.p-4
