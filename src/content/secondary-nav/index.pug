@@ -1,9 +1,15 @@
 extends ../../includes/_base
 
 block params
-  - var pageTitle = "Secondary Nav" + pageTitleSuffix
+  - var pageTitle = "Content >> Secondary Nav" + pageTitleSuffix
   - var pageDescription = "Secondary Nav"
+  - var parentSlug = "content"
   - var pageSlug = "secondary-nav-page"
+  -
+    var breadcrumb = [
+      { "level": 1, "slug": "content", "label": "Content" },
+      { "level": 2, "slug": "secondary-nav-page", "label": "Secondary Nav" },
+    ]
 
 block content
   main

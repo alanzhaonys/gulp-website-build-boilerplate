@@ -24,6 +24,20 @@ export class ISI {
       thisRef.initState();
     });
 
+    $(window).on("resize", () => {
+      if (thisRef.stickyIsi.hasClass("expanded-w-header")) {
+        thisRef.stickyIsi.removeClass("expanded-w-header");
+
+        //
+        // Collapse it
+        //
+        thisRef.stickyIsi.removeAttr("style");
+        thisRef.stickyIsi.find(".isi-container").removeAttr("style");
+        // Make sure it's shown
+        thisRef.stickyIsi.fadeIn("fast");
+      }
+    });
+
     //
     // .toggle-isi is used to expand/collapse sticky ISI
     //
@@ -99,8 +113,8 @@ export class ISI {
       }
     }
 
-    // Only if inline ISI is enabled
-    if (this.isi.length) {
+    // Only if inline ISI is enabled and visible
+    if (this.isi.length && this.isi.is(":visible")) {
       if (this.isInViewport()) {
         if (this.stickyIsi.is(":visible")) {
           this.stickyIsi.hide();
