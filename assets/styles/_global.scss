@@ -15,8 +15,11 @@ body {
   main {
     position: relative;
     margin-top: $top-bar-mobile-height + $main-nav-mobile-height;
+    min-height: calc(100vh - #{$top-bar-mobile-height} - #{$main-nav-mobile-height} - #{$footer-mobile-height});
+
     @include media-breakpoint-up(lg) {
       margin-top: $top-bar-desktop-height + $main-nav-desktop-height;
+      min-height: calc(100vh - #{$top-bar-desktop-height} - #{$main-nav-desktop-height} - #{$footer-desktop-height});
     }
 
     padding: 50px 0;

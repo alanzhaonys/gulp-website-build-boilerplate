@@ -1,5 +1,4 @@
 // Rewritten from https://www.w3schools.com/howto/howto_css_timeline.asp
-
 $timeline-circle-radius: 30px;
 $timeline-line-width: 6px;
 $timeline-triangle-top: 30px;
@@ -83,10 +82,8 @@ $timeline-triangle-top: 30px;
     position: relative;
     border-radius: 6px;
   }
-}
 
-@include media-breakpoint-down(md) {
-  .timeline {
+  @include media-breakpoint-down(md) {
     &:after {
       left: $timeline-circle-radius;
     }
