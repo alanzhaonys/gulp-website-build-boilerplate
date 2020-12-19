@@ -43,7 +43,8 @@
 @import "content/typography";
 @import "content/lists";
 @import "content/form";
-@import "content/button";
+@import "content/timeline";
+@import "content/quotes";
 
 // Components
 @import "components/buttons";
@@ -56,8 +57,8 @@
 @import "components/mobile-zoom-chart";
 @import "components/secondary-nav";
 @import "components/clipboard";
+@import "components/card";
 @import "components/back-to-top";
-@import "components/timeline";
 
 // Layouts
 @import "components/columns.scss";

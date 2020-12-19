@@ -1,0 +1,33 @@
+extends ../../includes/_base
+
+block params
+  - var pageTitle = "Content >> Quotes" + pageTitleSuffix
+  - var pageDescription = "Quotes"
+  - var parentSlug = "content"
+  - var pageSlug = "quotes-page"
+  -
+    var breadcrumb = [
+      { "level": 1, "slug": "content", "label": "Content" },
+      { "level": 2, "slug": "quotes-page", "label": "Quotes" },
+    ]
+
+block content
+    main
+      .container
+        .row
+          .col-12.col-md-6
+            .quote.z-card
+              .quote__content
+                | #[span.quote__left “]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.#[span.quote__right ”]
+              .quote__author
+                | John Doe
+              .quote__title
+                | CEO of John Doe LLC
+          .col-12.col-md-6
+            .quote.z-card
+              .quote__content
+                | #[span.quote__left “]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac viverra mi, tincidunt consequat massa. Vivamus imperdiet eros condimentum commodo vulputate. Maecenas tincidunt, dolor ac commodo varius, velit diam egestas ligula, sit amet scelerisque est ipsum ac turpis.#[span.quote__right ”]
+              .quote__author
+                | John Doe
+              .quote__title
+                | CEO of John Doe LLC
