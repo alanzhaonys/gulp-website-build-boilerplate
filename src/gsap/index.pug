@@ -1,0 +1,32 @@
+extends ../includes/_gsap-base
+
+block params
+  - var pageTitle = "Effects >> GSAP" + pageTitleSuffix
+  - var pageDescription = "GSAP"
+  - var parentSlug = "effects"
+  - var pageSlug = "gsap-page"
+  -
+    var breadcrumb = [
+      { "level": 2, "slug": "gsap-page", "label": "GSAP" },
+    ]
+
+block content
+  .scroll-container
+    .description.panel.blue
+      div
+        h1 Horizontal snapping sections (simple)
+        p
+          | Scroll vertically to scrub the horizontal animation. It also dynamically snaps to the sections in an organic way based on the velocity. The snapping occurs based on the natural ending position after momentum is applied, not a simplistic &quot;wherever it is when the user stops&quot;.
+        .scroll-down
+          | Scroll down
+          .arrow
+    section.panel.red
+      | ONE
+    section.panel.orange
+      | TWO
+    section.panel.purple
+      | THREE
+    section.panel.green
+      | FOUR
+    section.panel.gray
+      | FIVE
