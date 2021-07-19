@@ -1,3 +1,6 @@
+# Version
+Node version 12 is required
+
 # Usage
 `yarn install` & `gulp build` (complile for first time)
 
