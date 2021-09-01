@@ -1,0 +1,39 @@
+version: 0.2
+
+env:
+  variables:
+    PACKAGE_NAME: your-package-name
+    CLOUDFRONT_DISTRIBUTION_ID: XXXX
+phases:
+  install:
+    on-failure: ABORT
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo INSTALL started on `date`
+      - echo `pwd`
+      - yarn global add gulp
+      - yarn install
+      - echo INSTALL completed on `date`
+  build:
+    on-failure: ABORT
+    commands:
+      - echo BUILD started on `date`
+      - echo `pwd`
+      - gulp build
+      - echo BUILD completed on `date`
+  post_build:
+    commands:
+      - echo POST BUILD started on `date`
+      - aws cloudfront create-invalidation --distribution-id "${CLOUDFRONT_DISTRIBUTION_ID}" --paths "/*"
+      - echo POST BUILD completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist
+  discard-paths: no
+cache:
+  paths:
+    - '/root/.npm/**/*'
+    - '/node_modules/'
