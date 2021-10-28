@@ -20,7 +20,7 @@ import { JarallaxParallax } from "./JarallaxParallax";
 import lozad from "lozad";
 import { Quicklink } from "./Quicklink";
 import { BackToTop } from "./BackToTop";
-import { GSAP } from "./GSAP";
+//import { GSAP } from "./GSAP";
 
 // Polyfill - WTF is IE11 doing
 if (typeof NodeList.prototype.forEach !== "function") {
@@ -156,6 +156,6 @@ $(document).ready(function () {
   let backToTop = new BackToTop();
   backToTop.listen();
 
-  let gsap = new GSAP();
-  gsap.listen();
+  //let gsap = new GSAP();
+  //gsap.listen();
 });
