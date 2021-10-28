@@ -1,5 +1,5 @@
 var gulp = require("gulp"),
-  scss = require("gulp-sass"),
+  scss = require('gulp-sass')(require('sass')),
   browserSync = require("browser-sync"),
   webpack = require("webpack"),
   webpackStream = require("webpack-stream"),

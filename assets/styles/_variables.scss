@@ -18,17 +18,17 @@ $color-body: #333;
 $color-orange: #FFA500;
 
 $colors: (
-  blue: $color-blue,
-  red: $color-red,
-  yellow: $color-yellow,
-  light-yellow: $color-light-yellow,
-  purple: $color-purple,
-  light-purple: $color-light-purple,
-  dark-purple: $color-dark-purple,
-  gray: $color-gray,
-  black: $color-black,
-  white: $color-white,
-  body: $color-body
+  'blue': $color-blue,
+  'red': $color-red,
+  'yellow': $color-yellow,
+  'light-yellow': $color-light-yellow,
+  'purple': $color-purple,
+  'light-purple': $color-light-purple,
+  'dark-purple': $color-dark-purple,
+  'gray': $color-gray,
+  'black': $color-black,
+  'white': $color-white,
+  'body': $color-body
 );
 
 // Cookie height
